@@ -1,0 +1,16 @@
+ ____     __  __  ______   __       ____        __  __  ____
+/\  _`\  /\ \/\ \/\__  _\ /\ \     /\  _`\     /\ \/\ \/\  _`\
+\ \ \L\ \\ \ \ \ \/_/\ \/ \ \ \    \ \ \/\ \   \ \ \ \ \ \ \L\ \
+ \ \  _ <'\ \ \ \ \ \ \ \  \ \ \  __\ \ \ \ \   \ \ \ \ \ \ ,__/
+  \ \ \L\ \\ \ \_\ \ \_\ \__\ \ \L\ \\ \ \_\ \   \ \ \_\ \ \ \/
+   \ \____/ \ \_____\/\_____\\ \____/ \ \____/    \ \_____\ \_\
+    \/___/   \/_____/\/_____/ \/___/   \/___/      \/_____/\/_/
+
+By Cognis Group 2026:
+- Felipe De Paula
+- Vitoŕia de Araújo Abila
+- Vitor Marção
+- Yure de Souza Damasceno
+
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}
