@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Endereço {
+public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,7 +29,7 @@ public class Endereço {
 
     @Column(length = 2, nullable = false)
     private String estado;
-    
+
     @Column(length = 10)
     private Integer cep;
 }
