@@ -24,6 +24,7 @@ public class Empreiteira {
     @Column(length = 150, nullable = false)
     private String razao_social;
 
-    @OneToOne(mappedBy = "id_endereco")
+    @OneToOne
+    @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 }
