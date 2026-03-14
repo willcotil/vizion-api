@@ -1,9 +1,11 @@
-package com.cognis.buildup_api.core;
+package com.cognis.buildup_api.core.empreiteira;
 
+import com.cognis.buildup_api.core.Endereco;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 @Entity
 @Getter
@@ -15,6 +17,7 @@ public class Empreiteira {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @CNPJ
     @Column(length = 18, nullable = false)
     private String cnpj;
 
@@ -27,4 +30,5 @@ public class Empreiteira {
     @OneToOne
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;
+
 }
