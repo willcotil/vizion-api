@@ -1,5 +1,6 @@
 package com.cognis.buildup_api.core;
 
+import com.cognis.buildup_api.core.empreiteira.Empreiteira;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -41,8 +42,5 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "id_empreiteira")
     private Empreiteira empreiteira;
-
-
-
 
 }
