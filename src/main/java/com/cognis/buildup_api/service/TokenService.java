@@ -18,8 +18,7 @@ import java.util.Date;
 @Service
 public class TokenService {
 
-    @Value("${api.security.token.secret}")
-    private String secret;
+    private String secret = "vitor";
 
     private static final String ISSUER = "sua-api";
     private static final long EXPIRACAO_HORAS = 2;
