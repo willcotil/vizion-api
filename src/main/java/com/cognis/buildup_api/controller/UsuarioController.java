@@ -3,12 +3,15 @@ package com.cognis.buildup_api.controller;
 import com.cognis.buildup_api.core.usuario.Usuario;
 import com.cognis.buildup_api.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController("/api/usuario")
+@RestController
+@RequestMapping("/api/usuario")
 public class UsuarioController {
 
     @Autowired

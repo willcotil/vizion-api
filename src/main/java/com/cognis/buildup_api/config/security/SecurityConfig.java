@@ -24,9 +24,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final TenantHttpFilter tenantHttpFilter;
+    private final SecurityFilter securityFilter;
 
-    public SecurityConfig(TenantHttpFilter tenantHttpFilter) {
+    public SecurityConfig(TenantHttpFilter tenantHttpFilter, SecurityFilter securityFilter) {
         this.tenantHttpFilter = tenantHttpFilter;
+        this.securityFilter = securityFilter;
     }
 
     @Bean
@@ -37,9 +39,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers("/api/auth/me").permitAll()
+                        .requestMatchers("/api/auth/refresh-token").authenticated()
+
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(tenantHttpFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(tenantHttpFilter, SecurityFilter.class);
 
         return http.build();
     }
