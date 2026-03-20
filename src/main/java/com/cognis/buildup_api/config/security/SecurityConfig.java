@@ -3,6 +3,8 @@ package com.cognis.buildup_api.config.security;
 import com.cognis.buildup_api.config.multitenancy.TenantHttpFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -38,6 +40,15 @@ public class SecurityConfig {
                 .addFilterBefore(tenantHttpFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    @Bean
+    static RoleHierarchy roleHierarchy() {
+        return RoleHierarchyImpl.withDefaultRolePrefix()
+                .role("ADMIN").implies("EMPREITEIRO")
+                .role("EMPREITEIRO").implies("FUNCIONARIO")
+                .role("FUNCIONARIO").implies("CLIENTE")
+                .build();
     }
 
     @Bean
