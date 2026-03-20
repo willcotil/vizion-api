@@ -37,8 +37,9 @@ public class Usuario implements UserDetails {
     @Column(length = 255, nullable = false)
     private String senha;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private String status;
+    private UsuarioStatus status;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
