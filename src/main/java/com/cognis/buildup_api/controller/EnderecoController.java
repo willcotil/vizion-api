@@ -10,7 +10,8 @@ import java.util.Optional;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
-@RestController("/api/endereco")
+@RestController
+@RequestMapping("/api/endereco")
 public class EnderecoController {
 
     @Autowired
