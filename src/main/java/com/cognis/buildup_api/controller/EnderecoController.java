@@ -18,12 +18,12 @@ public class EnderecoController {
     private EnderecoRepo enderecoRepo;
 
     @PostMapping
-    private Endereco criar(@RequestBody Endereco endereco){return enderecoRepo.save(endereco);}
+    private Endereco criar(@RequestBody Endereco body){return enderecoRepo.save(body);}
 
    @GetMapping
-    private ResponseEntity<Endereco> buscar(@PathVariable Integer id){
-       Optional<Endereco> endereco = enderecoRepo.findById(id);
-        return ResponseEntity.of(endereco);
+    private ResponseEntity<Endereco> buscarPorId(@PathVariable Integer id){
+       Optional<Endereco> buscarPorId = enderecoRepo.findById(id);
+        return ResponseEntity.of(buscarPorId);
     }
 
     @PutMapping
