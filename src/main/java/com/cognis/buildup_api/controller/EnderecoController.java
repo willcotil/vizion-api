@@ -1,14 +1,12 @@
 package com.cognis.buildup_api.controller;
 
-import com.cognis.buildup_api.core.Endereco;
+import com.cognis.buildup_api.core.endereco.Endereco;
 import com.cognis.buildup_api.repository.EnderecoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/api/endereco")
