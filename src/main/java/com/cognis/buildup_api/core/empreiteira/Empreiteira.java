@@ -1,6 +1,6 @@
 package com.cognis.buildup_api.core.empreiteira;
 
-import com.cognis.buildup_api.core.Endereco;
+import com.cognis.buildup_api.core.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
