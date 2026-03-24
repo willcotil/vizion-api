@@ -32,6 +32,7 @@ public class TokenService {
                 .issuer(ISSUER)
                 .subject(usuario.getEmail())
                 .claim("role", usuario.getRole().name())
+                .claim("id", usuario.getId())
                 .expiration(dataExpiracao())
                 .signWith(getSecretKey())
                 .compact();
