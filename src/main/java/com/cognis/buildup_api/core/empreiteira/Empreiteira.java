@@ -1,6 +1,8 @@
 package com.cognis.buildup_api.core.empreiteira;
 
+import com.cognis.buildup_api.core.BaseEntity;
 import com.cognis.buildup_api.core.endereco.Endereco;
+import com.cognis.buildup_api.core.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +13,7 @@ import org.hibernate.validator.constraints.br.CNPJ;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Empreiteira {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Empreiteira extends BaseEntity {
 
     @CNPJ
     @Column(length = 18, nullable = false)
@@ -30,5 +28,9 @@ public class Empreiteira {
     @OneToOne
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;
+
+    @OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
 }

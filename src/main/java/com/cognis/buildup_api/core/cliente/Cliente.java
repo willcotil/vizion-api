@@ -1,5 +1,7 @@
 package com.cognis.buildup_api.core.cliente;
 
+import com.cognis.buildup_api.core.BaseEntity;
+import com.cognis.buildup_api.core.usuario.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -9,14 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Cliente {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(length = 50, nullable = false)
-    private String tenantid;
+public class Cliente extends BaseEntity {
 
     @Column(length = 150, nullable = false)
     private String name;
@@ -30,4 +25,7 @@ public class Cliente {
     @Email
     @Column(length = 150, nullable = false)
     private String email;
+
+    @Column(name = "usuario_id")
+    private Integer usuarioId;
 }
