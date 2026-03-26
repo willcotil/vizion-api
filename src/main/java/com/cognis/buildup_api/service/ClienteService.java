@@ -23,12 +23,4 @@ public class ClienteService extends BaseService<Cliente, ClienteRequest, Cliente
     @Override protected ModelMapper getMapper() { return mapper; }
     @Override protected Class<Cliente> getEntityClass() { return Cliente.class; }
     @Override protected Class<ClienteResponse> getResponseClass() { return ClienteResponse.class; }
-
-    @Override
-    public ClienteResponse atualizar(ClienteRequest request, Integer id) {
-        if (!repo.existsById(id)) throw new RuntimeException("Cliente não encontrado");
-        Cliente cliente = mapper.map(request, Cliente.class);
-        cliente.setId(id);
-        return mapper.map(repo.save(cliente), ClienteResponse.class);
-    }
 }
