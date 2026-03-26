@@ -23,13 +23,6 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 155, nullable = false)
-    private String nome;
-
-    @CPF
-    @Column(length = 14, nullable = false)
-    private String cpf;
-
     @Email
     @Column(length = 150, nullable = false)
     private String email;
@@ -47,12 +40,6 @@ public class Usuario implements UserDetails {
 
     @Column(length = 50)
     private String tenant_id;
-
-    @OneToOne
-    @JoinColumn(name = "id_empreiteira")
-    private Empreiteira empreiteira;
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

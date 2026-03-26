@@ -44,7 +44,6 @@ public class AuthController {
         return ResponseEntity.ok(new LoginResponse(
                 token,
                 refreshToken.getToken(),
-                usuario.getNome(),
                 usuario.getRole().name(),
                 usuario.getTenant_id()
         ));
