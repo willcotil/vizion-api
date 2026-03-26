@@ -1,10 +1,11 @@
 package com.cognis.buildup_api.service;
 
+import com.cognis.buildup_api.core.BaseEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public abstract class BaseService<T, REQ, RES, ID> implements IGenericService<REQ, RES, ID> {
+public abstract class BaseService<T extends BaseEntity, REQ, RES, ID> implements IGenericService<REQ, RES, ID> {
     protected abstract JpaRepository<T, ID> getRepo();
     protected abstract ModelMapper getMapper();
     protected abstract Class<T> getEntityClass();
@@ -36,5 +37,19 @@ public abstract class BaseService<T, REQ, RES, ID> implements IGenericService<RE
             throw new RuntimeException("Registro não encontrado para exclusão");
         }
         getRepo().deleteById(id);
+    }
+
+
+    @Override
+    public RES atualizar(REQ request, ID id) {
+        if (!getRepo().existsById(id)) {
+            throw new RuntimeException("Registro não encontrado para atualização: " + id);
+        }
+
+        T entity = getMapper().map(request, getEntityClass());
+
+        entity.setId((Integer) id);
+
+        return getMapper().map(getRepo().save(entity), getResponseClass());
     }
 }
