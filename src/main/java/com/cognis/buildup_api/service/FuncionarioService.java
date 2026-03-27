@@ -18,8 +18,8 @@ public class FuncionarioService extends BaseService<Funcionario, FuncionarioRequ
     private final FuncionarioRepo repo;
     private final ModelMapper mapper;
 
-    @Override protected JpaRepository<Cliente, Integer> getRepo() { return repo; }
+    @Override protected JpaRepository<Funcionario, Integer> getRepo() { return repo; }
     @Override protected ModelMapper getMapper() { return mapper; }
-    @Override protected Class<Cliente> getEntityClass() { return Cliente.class; }
-    @Override protected Class<ClienteResponse> getResponseClass() { return ClienteResponse.class; }
+    @Override protected Class<Funcionario> getEntityClass() { return Funcionario.class; }
+    @Override protected Class<FuncionarioResponse> getResponseClass() { return FuncionarioResponse.class; }
 }
