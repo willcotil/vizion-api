@@ -1,7 +1,7 @@
 package com.cognis.buildup_api.core.obra.fases_obra.obra_material;
 
 import com.cognis.buildup_api.core.BaseEntity;
-import com.cognis.buildup_api.core.obra.fases_obra.Fases_Obra;
+import com.cognis.buildup_api.core.obra.fases_obra.FasesObra;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 
-public class Obra_Material extends BaseEntity {
+public class ObraMaterial extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_fase")
-    private Fases_Obra fases_obra;
+    private FasesObra fases_obra;
     @Column(length = 50, nullable = false)
     private String nome_material;
     @Column(length = 200)

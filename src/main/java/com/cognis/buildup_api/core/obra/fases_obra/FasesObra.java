@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor
-public class Fases_Obra extends BaseEntity {
+public class FasesObra extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_obra")
