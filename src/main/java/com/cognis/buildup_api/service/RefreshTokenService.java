@@ -3,6 +3,7 @@ package com.cognis.buildup_api.service;
 import com.cognis.buildup_api.core.auth.RefreshToken;
 import com.cognis.buildup_api.core.usuario.Usuario;
 import com.cognis.buildup_api.repository.RefreshTokenRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
