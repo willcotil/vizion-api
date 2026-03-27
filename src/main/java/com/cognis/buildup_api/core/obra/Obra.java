@@ -1,8 +1,11 @@
 package com.cognis.buildup_api.core.obra;
 
 import com.cognis.buildup_api.core.BaseEntity;
+import com.cognis.buildup_api.core.endereco.Endereco;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +21,9 @@ public class Obra extends BaseEntity{
     private String tenant_id;
     @Column(length = 150, nullable= false)
     private String nome_projeto;
-    @Column(nullable = false)
-    private int id_endereco;
+    @OneToOne
+    @JoinColumn(name = "id_endereco")
+    private Endereco endereco;
     @Column(nullable = false)
     private Date data_inicio;
     @Column(nullable = false)
