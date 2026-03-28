@@ -25,6 +25,5 @@ public class ObraMaterial extends BaseEntity {
     private String descricao_material;
     @Column(nullable = false)
     private BigDecimal valor_material;
-    @Column
-    private int id_fase;
+
 }
