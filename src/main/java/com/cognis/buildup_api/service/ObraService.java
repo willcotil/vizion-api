@@ -1,11 +1,8 @@
 package com.cognis.buildup_api.service;
 
-import com.cognis.buildup_api.core.BaseEntity;
-import com.cognis.buildup_api.core.cliente.Cliente;
-import com.cognis.buildup_api.core.cliente.ClienteResponse;
 import com.cognis.buildup_api.core.obra.Obra;
-import com.cognis.buildup_api.core.obra.ObraRequest;
-import com.cognis.buildup_api.core.obra.ObraResponse;
+import com.cognis.buildup_api.core.obra.dto.ObraRequest;
+import com.cognis.buildup_api.core.obra.dto.ObraResponse;
 import com.cognis.buildup_api.repository.ObraRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

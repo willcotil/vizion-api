@@ -1,8 +1,8 @@
 package com.cognis.buildup_api.service;
 
-import com.cognis.buildup_api.core.obra.fases_obra.obra_material.ObraMaterial;
-import com.cognis.buildup_api.core.obra.fases_obra.obra_material.ObraMaterialRequest;
-import com.cognis.buildup_api.core.obra.fases_obra.obra_material.ObraMaterialResponse;
+import com.cognis.buildup_api.core.obra.obraMaterial.ObraMaterial;
+import com.cognis.buildup_api.core.obra.obraMaterial.dto.ObraMaterialRequest;
+import com.cognis.buildup_api.core.obra.obraMaterial.dto.ObraMaterialResponse;
 import com.cognis.buildup_api.repository.ObraMaterialRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

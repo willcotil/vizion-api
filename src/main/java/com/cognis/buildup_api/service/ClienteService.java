@@ -1,16 +1,13 @@
 package com.cognis.buildup_api.service;
 
 import com.cognis.buildup_api.core.cliente.Cliente;
-import com.cognis.buildup_api.core.cliente.ClienteRequest;
-import com.cognis.buildup_api.core.cliente.ClienteResponse;
+import com.cognis.buildup_api.core.cliente.dto.ClienteRequest;
+import com.cognis.buildup_api.core.cliente.dto.ClienteResponse;
 import com.cognis.buildup_api.repository.ClienteRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor

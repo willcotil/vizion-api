@@ -1,9 +1,9 @@
 package com.cognis.buildup_api.service;
 
 
-import com.cognis.buildup_api.core.obra.obra_proprietarios.ObraProprietarios;
-import com.cognis.buildup_api.core.obra.obra_proprietarios.ObraProprietariosRequest;
-import com.cognis.buildup_api.core.obra.obra_proprietarios.ObraProprietariosResponse;
+import com.cognis.buildup_api.core.obra.obraPropietarios.ObraProprietarios;
+import com.cognis.buildup_api.core.obra.obraPropietarios.dto.ObraProprietariosRequest;
+import com.cognis.buildup_api.core.obra.obraPropietarios.dto.ObraProprietariosResponse;
 import com.cognis.buildup_api.repository.ObraProprietariosRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

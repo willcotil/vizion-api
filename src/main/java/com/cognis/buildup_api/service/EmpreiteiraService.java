@@ -1,8 +1,8 @@
 package com.cognis.buildup_api.service;
 
 import com.cognis.buildup_api.core.empreiteira.Empreiteira;
-import com.cognis.buildup_api.core.empreiteira.EmpreiteiraRequest;
-import com.cognis.buildup_api.core.empreiteira.EmpreiteraResponse;
+import com.cognis.buildup_api.core.empreiteira.dto.EmpreiteiraRequest;
+import com.cognis.buildup_api.core.empreiteira.dto.EmpreiteraResponse;
 import com.cognis.buildup_api.repository.EmpreiteiraRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
