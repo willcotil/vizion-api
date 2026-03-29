@@ -33,3 +33,12 @@ build/
 .vscode/
 
 .env
+
+# Conda / Python
+*.conda
+*.tar.bz2
+pkgs/
+envs/
+
+# Sistema
+clear/
