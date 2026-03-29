@@ -1,9 +1,11 @@
 package com.cognis.buildup_api.controller;
 
 import com.cognis.buildup_api.core.auth.*;
+import com.cognis.buildup_api.core.auth.dto.LoginRequest;
+import com.cognis.buildup_api.core.auth.dto.LoginResponse;
+import com.cognis.buildup_api.core.auth.dto.RefreshTokenRequest;
+import com.cognis.buildup_api.core.auth.dto.TokenRefreshResponse;
 import com.cognis.buildup_api.core.usuario.Usuario;
-import com.cognis.buildup_api.core.usuario.UsuarioRequest;
-import com.cognis.buildup_api.core.usuario.UsuarioRole;
 import com.cognis.buildup_api.repository.RefreshTokenRepo;
 import com.cognis.buildup_api.service.RefreshTokenService;
 import com.cognis.buildup_api.service.TokenService;

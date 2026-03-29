@@ -1,6 +1,7 @@
 package com.cognis.buildup_api.controller;
 
 import com.cognis.buildup_api.service.IGenericService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public abstract class  GenericController<REQ, RES, ID> {
     }
 
     @PostMapping
-    public ResponseEntity<RES> save(@RequestBody REQ request) {
+    public ResponseEntity<RES> save(@Valid @RequestBody REQ request) {
         return ResponseEntity.ok(service.salvar(request));
     }
 

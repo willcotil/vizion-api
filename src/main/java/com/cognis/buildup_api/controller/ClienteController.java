@@ -1,11 +1,9 @@
 package com.cognis.buildup_api.controller;
 
-import com.cognis.buildup_api.core.cliente.ClienteRequest;
-import com.cognis.buildup_api.core.cliente.ClienteResponse;
+import com.cognis.buildup_api.core.cliente.dto.ClienteRequest;
+import com.cognis.buildup_api.core.cliente.dto.ClienteResponse;
 import com.cognis.buildup_api.service.ClienteService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/cliente")

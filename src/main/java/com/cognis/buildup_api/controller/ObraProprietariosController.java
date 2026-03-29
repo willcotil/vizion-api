@@ -1,7 +1,7 @@
 package com.cognis.buildup_api.controller;
 
-import com.cognis.buildup_api.core.obra.obra_proprietarios.ObraProprietariosRequest;
-import com.cognis.buildup_api.core.obra.obra_proprietarios.ObraProprietariosResponse;
+import com.cognis.buildup_api.core.obra.obraPropietarios.dto.ObraProprietariosRequest;
+import com.cognis.buildup_api.core.obra.obraPropietarios.dto.ObraProprietariosResponse;
 import com.cognis.buildup_api.service.ObraProprietariosService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
