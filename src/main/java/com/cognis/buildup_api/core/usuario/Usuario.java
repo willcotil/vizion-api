@@ -22,7 +22,7 @@ import java.util.List;
 public class Usuario  extends BaseEntity implements UserDetails{
 
     @Email
-    @Column(length = 150, nullable = false)
+    @Column(length = 150, nullable = false, unique = true)
     private String email;
 
     @Column(length = 255, nullable = false)
