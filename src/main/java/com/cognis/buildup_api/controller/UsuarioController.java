@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/usuario")
-@RequiredArgsConstructor
 public class UsuarioController extends GenericController<UsuarioRequest, UsuarioResponse, Integer>{
-    public UsuarioController(UsuarioService usuarioService){
-        super(usuarioService);
+    public UsuarioController(UsuarioService service){
+        super(service);
     }
 }
