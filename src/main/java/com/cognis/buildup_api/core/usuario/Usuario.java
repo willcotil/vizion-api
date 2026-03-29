@@ -1,5 +1,6 @@
 package com.cognis.buildup_api.core.usuario;
 
+import com.cognis.buildup_api.core.BaseEntity;
 import com.cognis.buildup_api.core.empreiteira.Empreiteira;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -18,10 +19,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 
-public class Usuario implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Usuario  extends BaseEntity implements UserDetails{
 
     @Email
     @Column(length = 150, nullable = false)
