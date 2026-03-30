@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cognis</groupId>
-	<artifactId>buildup-api</artifactId>
+	<artifactId>vizion-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>buildup-api</name>
-	<description>BuildUp backend application</description>
+	<name>vizion-api</name>
+	<description>VIZION backend application</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,0 +1,58 @@
+package com.cognis.vizion.api.service;
+
+import com.cognis.vizion.api.core.usuario.Usuario;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Service;
+
+import javax.crypto.SecretKey;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
+
+@Service
+public class TokenService {
+
+    private String secret = "ba1ca820e45f26ed9254a984026b6c00e1ff03ac13a0d7226eacaab5a4840c7d";
+
+    private static final String ISSUER = "sua-api";
+    private static final long EXPIRACAO_HORAS = 2;
+
+    private SecretKey getSecretKey() {
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
+    }
+
+    public String gerarToken(Usuario usuario) {
+        return Jwts.builder()
+                .issuer(ISSUER)
+                .subject(usuario.getEmail())
+                .claim("role", usuario.getRole().name())
+                .claim("id", usuario.getId())
+                .expiration(dataExpiracao())
+                .signWith(getSecretKey())
+                .compact();
+    }
+
+    public String validarToken(String token) {
+        try {
+            return Jwts.parser()
+                    .verifyWith(getSecretKey())
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload()
+                    .getSubject();
+        } catch (JwtException e) {
+            return null;
+        }
+    }
+
+    private Date     dataExpiracao() {
+        return Date.from(
+                LocalDateTime.now()
+                        .plusHours(EXPIRACAO_HORAS)
+                        .toInstant(ZoneOffset.of("-03:00"))
+        );
+    }
+}
