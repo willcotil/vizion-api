@@ -1,7 +1,7 @@
 package com.cognis.vizion.api.controller;
 
 import com.cognis.vizion.api.core.auth.RefreshToken;
-import com.cognis.vizionapi.core.auth.*;
+import com.cognis.vizion.api.core.auth.*;
 import com.cognis.vizion.api.core.auth.dto.LoginRequest;
 import com.cognis.vizion.api.core.auth.dto.LoginResponse;
 import com.cognis.vizion.api.core.auth.dto.RefreshTokenRequest;

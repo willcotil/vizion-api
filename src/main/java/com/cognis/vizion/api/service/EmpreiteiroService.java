@@ -5,7 +5,7 @@ import com.cognis.vizion.api.core.empreiteiro.dto.EmpreiteiroRequest;
 import com.cognis.vizion.api.core.empreiteiro.dto.EmpreiteiroResponse;
 import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.core.usuario.UsuarioResponse;
-import com.cognis.vizionapi.core.usuario.*;
+import com.cognis.vizion.api.core.usuario.*;
 import com.cognis.vizion.api.repository.EmpreiteiroRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

@@ -4,7 +4,7 @@ import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.core.usuario.UsuarioRequest;
 import com.cognis.vizion.api.core.usuario.UsuarioResponse;
 import com.cognis.vizion.api.core.usuario.UsuarioStatus;
-import com.cognis.vizionapi.core.usuario.*;
+import com.cognis.vizion.api.core.usuario.*;
 import com.cognis.vizion.api.repository.UsuarioRepo;
 import com.cognis.vizion.api.validator.UsuarioValidator;
 import jakarta.transaction.Transactional;
