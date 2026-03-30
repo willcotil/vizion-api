@@ -1,0 +1,66 @@
+package com.cognis.vizion.api.controller;
+
+import com.cognis.vizion.api.core.auth.RefreshToken;
+import com.cognis.vizionapi.core.auth.*;
+import com.cognis.vizion.api.core.auth.dto.LoginRequest;
+import com.cognis.vizion.api.core.auth.dto.LoginResponse;
+import com.cognis.vizion.api.core.auth.dto.RefreshTokenRequest;
+import com.cognis.vizion.api.core.auth.dto.TokenRefreshResponse;
+import com.cognis.vizion.api.core.usuario.Usuario;
+import com.cognis.vizion.api.repository.RefreshTokenRepo;
+import com.cognis.vizion.api.service.RefreshTokenService;
+import com.cognis.vizion.api.service.TokenService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private TokenService tokenService;
+
+    @Autowired
+    private RefreshTokenService refreshTokenService;
+
+    @Autowired
+    private RefreshTokenRepo refreshTokenRepo;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest data) {
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.getEmail(), data.getSenha());
+        var auth = this.authenticationManager.authenticate(usernamePassword);
+
+        var usuario = (Usuario) auth.getPrincipal();
+
+        var token = tokenService.gerarToken(usuario);
+
+        var refreshToken = refreshTokenService.createRefreshToken(usuario);
+
+        return ResponseEntity.ok(new LoginResponse(
+                token,
+                refreshToken.getToken(),
+                usuario.getRole().name(),
+                usuario.getTenant_id()
+        ));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(@RequestBody RefreshTokenRequest request) {
+        return refreshTokenRepo.findByToken(request.getRefreshToken())
+                .map(refreshTokenService::verifyExpiration)
+                .map(RefreshToken::getUsuario)
+                .map(usuario -> {
+                    String accessToken = tokenService.gerarToken(usuario);
+                    return ResponseEntity.ok(new TokenRefreshResponse(accessToken, request.getRefreshToken()));
+                })
+                .orElseThrow(() -> new RuntimeException("Refresh token não encontrado no banco!"));
+    }
+}
