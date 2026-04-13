@@ -21,9 +21,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MovimentacaoEstoque extends BaseEntity {
 
-    @Column(length = 50, nullable = false)
-    private String tenant_id;
-
     @ManyToOne
     @JoinColumn(name = "id_estoque", nullable = false)
     private Estoque estoque;

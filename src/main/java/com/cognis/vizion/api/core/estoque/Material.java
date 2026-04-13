@@ -15,9 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Material extends BaseEntity {
 
-    @Column(length = 50, nullable = false)
-    private String tenant_id;
-
     @Column(length = 100, nullable = false)
     private String nome_material;
 

@@ -18,9 +18,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Estoque extends BaseEntity {
 
-    @Column(length = 50, nullable = false)
-    private String tenant_id;
-
     @ManyToOne
     @JoinColumn(name = "id_material", nullable = false)
     private Material material;
