@@ -5,11 +5,19 @@ import com.cognis.vizion.api.core.usuario.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "empreiteiro", schema = "public")
 @Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
 public class Empreiteiro extends BaseEntity {
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
     @Column(length = 150, nullable = false)
     private String name;
@@ -23,9 +31,4 @@ public class Empreiteiro extends BaseEntity {
     @Email
     @Column(length = 150, nullable = false)
     private String email;
-
-    @OneToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
-
 }
