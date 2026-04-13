@@ -19,9 +19,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ObraMaterial extends BaseEntity {
 
-    @Column(length = 50, nullable = false)
-    private String tenant_id;
-
     @ManyToOne
     @JoinColumn(name = "id_fase")
     private FasesObra fases_obra;

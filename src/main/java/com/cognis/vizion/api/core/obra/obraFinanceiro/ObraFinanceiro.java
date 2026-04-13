@@ -23,9 +23,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ObraFinanceiro extends BaseEntity {
 
-    @Column(length = 50, nullable = false)
-    private String tenant_id;
-
     @Column(length = 200, nullable = false)
     private String descricao;
 
