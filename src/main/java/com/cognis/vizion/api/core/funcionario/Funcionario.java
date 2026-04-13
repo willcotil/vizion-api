@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
 
 @Entity
 @Data
@@ -20,6 +21,9 @@ public class Funcionario extends BaseEntity {
     @OneToOne(optional = false)
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
+
+    @Formula("(SELECT u.tenant_id FROM usuario u WHERE u.id = id_usuario)")
+    private String tenantId;
 
     @Column(length = 150, nullable = false)
     private String name;
