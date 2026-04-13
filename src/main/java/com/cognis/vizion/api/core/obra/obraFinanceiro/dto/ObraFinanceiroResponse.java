@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 public class ObraFinanceiroResponse {
     private Integer id;
-    private String tenant_id;
+
     private String descricao;
     private ObraFinanceiro.TipoFinanceiro tipo_financeiro;
     private BigDecimal valor;

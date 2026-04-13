@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 
 @Data
 public class MaterialRequest {
-    private String tenant_id;
     private String nome_material;
     private String descricao_material;
     private String unidade_medida;

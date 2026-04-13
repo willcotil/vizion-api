@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 @Data
 public class EstoqueResponse {
     private Integer id;
-    private String tenant_id;
     private Integer id_material;
     private BigDecimal quantidade_atual;
     private BigDecimal quantidade_minima;

@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @Data
 public class MovimentacaoEstoqueResponse {
     private Integer id;
-    private String tenant_id;
     private Integer id_estoque;
     private MovimentacaoEstoque.TipoMovimentacao tipo_movimentacao;
     private BigDecimal quantidade;
