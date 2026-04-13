@@ -29,6 +29,12 @@ public class ObraEmpreiteiro extends BaseEntity {
     @JoinColumn(name = "id_empreiteiro", nullable = false)
     private Empreiteiro empreiteiro;
 
+    @Column(length = 50, nullable = false)
+    private String tenant_id;
+
+    @Column(length = 300)
+    private String descricao_obra;
+
     @Column(name = "data_inicio", nullable = false)
     private LocalDate data_inicio;
 
