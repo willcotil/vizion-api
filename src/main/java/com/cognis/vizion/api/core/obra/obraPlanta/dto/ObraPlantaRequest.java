@@ -1,4 +1,4 @@
-package com.cognis.vizion.api.core.obra.planta.dto;
+package com.cognis.vizion.api.core.obra.obraPlanta.dto;
 
 import lombok.Data;
 

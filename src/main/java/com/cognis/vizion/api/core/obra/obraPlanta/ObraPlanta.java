@@ -1,4 +1,4 @@
-package com.cognis.vizion.api.core.obra.planta;
+package com.cognis.vizion.api.core.obra.obraPlanta;
 
 import com.cognis.vizion.api.core.BaseEntity;
 import jakarta.persistence.Column;
