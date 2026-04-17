@@ -1,6 +1,7 @@
 package com.cognis.vizion.api.core.obra.obraFinanceiro.dto;
 
 import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
+import com.cognis.vizion.api.core.obra.obraFinanceiro.TipoFinanceiro;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 public class ObraFinanceiroRequest {
 
     private String descricao;
-    private ObraFinanceiro.TipoFinanceiro tipo_financeiro;
+    private TipoFinanceiro tipo_financeiro;
     private BigDecimal valor;
     private LocalDate dataPagamento;
     private LocalDate dataEstimado;
