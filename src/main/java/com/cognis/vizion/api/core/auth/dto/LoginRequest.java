@@ -2,18 +2,10 @@ package com.cognis.vizion.api.core.auth.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class LoginRequest {
-    @NotBlank
-    @Email
-    private String email;
+public record LoginRequest(
+        @NotBlank @Email String email,
+        @NotBlank String senha
+) {
 
-    @NotBlank
-    private String senha;
 }

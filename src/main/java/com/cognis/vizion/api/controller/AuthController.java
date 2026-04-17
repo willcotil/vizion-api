@@ -35,7 +35,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginRequest data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.getEmail(), data.getSenha());
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var usuario = (Usuario) auth.getPrincipal();
@@ -54,12 +54,12 @@ public class AuthController {
 
     @PostMapping("/refresh")
     public ResponseEntity<?> refreshToken(@RequestBody RefreshTokenRequest request) {
-        return refreshTokenRepo.findByToken(request.getRefreshToken())
+        return refreshTokenRepo.findByToken(request.refreshToken())
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUsuario)
                 .map(usuario -> {
                     String accessToken = tokenService.gerarToken(usuario);
-                    return ResponseEntity.ok(new TokenRefreshResponse(accessToken, request.getRefreshToken()));
+                    return ResponseEntity.ok(new TokenRefreshResponse(accessToken, request.refreshToken()));
                 })
                 .orElseThrow(() -> new RuntimeException("Refresh token não encontrado no banco!"));
     }
