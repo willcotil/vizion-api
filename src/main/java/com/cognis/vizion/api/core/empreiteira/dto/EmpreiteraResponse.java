@@ -1,14 +1,19 @@
 package com.cognis.vizion.api.core.empreiteira.dto;
 
 
-import lombok.Data;
+import com.cognis.vizion.api.core.empreiteira.Empreiteira;
 
-@Data
-public class EmpreiteraResponse {
 
-    private Integer id;
-
-    private String nome_fantasia;
-
-    private String razao_social;
+public record EmpreiteraResponse (
+         Integer id,
+         String nome_fantasia,
+         String razao_social
+) {
+    public EmpreiteraResponse(Empreiteira empreiteira){
+        this(
+                empreiteira.getId(),
+                empreiteira.getNome_fantasia(),
+                empreiteira.getRazao_social()
+        );
+    }
 }

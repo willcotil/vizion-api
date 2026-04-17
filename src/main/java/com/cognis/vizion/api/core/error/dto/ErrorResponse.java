@@ -1,10 +1,7 @@
 package com.cognis.vizion.api.core.error.dto;
 
-import lombok.Data;
-
 import java.time.OffsetDateTime;
 
-@Data
 public class ErrorResponse {
     private String error;
     private String message;

@@ -1,22 +1,28 @@
 package com.cognis.vizion.api.core.endereco.dto;
 
-import lombok.Data;
 
-@Data
-public class EnderecoResponse {
-    private Integer id;
+import com.cognis.vizion.api.core.endereco.Endereco;
 
-    private String logradouro;
-
-    private String numero;
-
-    private String complemento;
-
-    private String bairro;
-
-    private String cidade;
-
-    private String estado;
-
-    private String cep;
+public record EnderecoResponse (
+        Integer id,
+        String logradouro,
+        String numero,
+        String complemento,
+        String bairro,
+        String cidade,
+        String estado,
+        String cep
+) {
+    public EnderecoResponse(Endereco endereco){
+        this(
+                endereco.getId(),
+                endereco.getLogradouro(),
+                endereco.getNumero(),
+                endereco.getComplemento(),
+                endereco.getBairro(),
+                endereco.getCidade(),
+                endereco.getEstado(),
+                endereco.getCep()
+        );
+    }
 }

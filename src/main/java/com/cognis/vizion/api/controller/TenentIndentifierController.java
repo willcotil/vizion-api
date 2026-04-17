@@ -1,7 +1,7 @@
 package com.cognis.vizion.api.controller;
 
-import com.cognis.vizion.api.core.tenent.TenentIndentifierRequest;
-import com.cognis.vizion.api.core.tenent.TenentIndentifierResponse;
+import com.cognis.vizion.api.core.tenent.dto.TenentIndentifierRequest;
+import com.cognis.vizion.api.core.tenent.dto.TenentIndentifierResponse;
 import com.cognis.vizion.api.service.TenentIndentifierService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

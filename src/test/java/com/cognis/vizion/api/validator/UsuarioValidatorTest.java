@@ -1,6 +1,6 @@
 package com.cognis.vizion.api.validator;
 
-import com.cognis.vizion.api.core.usuario.UsuarioRequest;
+import com.cognis.vizion.api.core.usuario.dto.UsuarioRequest;
 import com.cognis.vizion.api.core.usuario.UsuarioRole;
 import com.cognis.vizion.api.infra.exception.ValidationException;
 import com.cognis.vizion.api.repository.UsuarioRepo;

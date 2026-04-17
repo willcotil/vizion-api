@@ -36,4 +36,9 @@ public class ObraMaterial extends BaseEntity {
     @Column(name = "data_alocacao")
     private LocalDate dataAlocacao;
 
+    @Column(name = "descricao_material", length = 200)
+    private String descricao_material;
+
+    @Column(name = "nome_material", length = 100)
+    private String nome_material;
 }

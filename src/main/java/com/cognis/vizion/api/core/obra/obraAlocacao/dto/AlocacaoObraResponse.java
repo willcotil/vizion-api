@@ -1,13 +1,23 @@
 package com.cognis.vizion.api.core.obra.obraAlocacao.dto;
 
-import java.time.LocalDate;
-import lombok.Data;
+import com.cognis.vizion.api.core.obra.obraAlocacao.ObraAlocacaoEquipe;
 
-@Data
-public class AlocacaoObraResponse {
-    private Integer id;
-    private Integer id_obra;
-    private Integer id_usuario;
-    private String role_obra;
-    private LocalDate data_inicio;
+import java.time.LocalDate;
+
+public record AlocacaoObraResponse(
+        Integer id,
+        Integer id_obra,
+        Integer id_usuario,
+        String role_obra,
+        LocalDate data_inicio
+) {
+    public AlocacaoObraResponse(ObraAlocacaoEquipe obraAlocacaoEquipe){
+        this(
+                obraAlocacaoEquipe.getId(),
+                obraAlocacaoEquipe.getId_obra(),
+                obraAlocacaoEquipe.getId_usuario(),
+                obraAlocacaoEquipe.getRole_obra(),
+                obraAlocacaoEquipe.getData_inicio()
+        );
+    }
 }

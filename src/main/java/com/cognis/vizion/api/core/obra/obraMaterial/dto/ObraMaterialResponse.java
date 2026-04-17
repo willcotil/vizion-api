@@ -1,14 +1,22 @@
 package com.cognis.vizion.api.core.obra.obraMaterial.dto;
 
-import lombok.Data;
+
+import com.cognis.vizion.api.core.obra.obraMaterial.ObraMaterial;
 
 import java.math.BigDecimal;
 
-@Data
-public class ObraMaterialResponse {
-
-    private String nome_material;
-    private String descricao_material;
-    private BigDecimal valor_material;
-    private int id_fase;
+public record ObraMaterialResponse(
+        String nome_material,
+        String descricao_material,
+        BigDecimal valor_material,
+        int id_fase
+) {
+    public ObraMaterialResponse(ObraMaterial obraMaterial){
+        this(
+                obraMaterial.getNome_material(),
+                obraMaterial.getDescricao_material(),
+                obraMaterial.getValor_material(),
+                obraMaterial.getId()
+        );
+    }
 }

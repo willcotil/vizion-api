@@ -1,8 +1,8 @@
 package com.cognis.vizion.api.service;
 
 import com.cognis.vizion.api.core.tenent.TenentIndentifier;
-import com.cognis.vizion.api.core.tenent.TenentIndentifierRequest;
-import com.cognis.vizion.api.core.tenent.TenentIndentifierResponse;
+import com.cognis.vizion.api.core.tenent.dto.TenentIndentifierRequest;
+import com.cognis.vizion.api.core.tenent.dto.TenentIndentifierResponse;
 import com.cognis.vizion.api.repository.TenentIndentifierRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

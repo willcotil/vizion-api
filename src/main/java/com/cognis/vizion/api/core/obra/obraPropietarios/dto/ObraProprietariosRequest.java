@@ -1,14 +1,15 @@
 package com.cognis.vizion.api.core.obra.obraPropietarios.dto;
 
-import lombok.Data;
+
 import java.math.BigDecimal;
 
-@Data
-public class ObraProprietariosRequest {
-    private Integer id_obra;
-    private Integer id_cliente;
-    private String tenant_id;
-    private String descricao_obra;
-    private BigDecimal percentual_participacao;
-    private String status;
+public record ObraProprietariosRequest (
+        Integer id_obra,
+        Integer id_cliente,
+        String tenant_id,
+        String descricao_obra,
+        BigDecimal percentual_participacao,
+        String status
+) {
+
 }

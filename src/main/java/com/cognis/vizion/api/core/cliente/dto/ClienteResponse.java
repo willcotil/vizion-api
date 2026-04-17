@@ -1,16 +1,20 @@
 package com.cognis.vizion.api.core.cliente.dto;
+import com.cognis.vizion.api.core.cliente.Cliente;
 
-import lombok.Data;
-
-@Data
-public class ClienteResponse {
-    private String tenantid;
-
-    private String name;
-
-    private String documento;
-
-    private String telefone;
-
-    private String email;
+public record ClienteResponse(
+         String tenantid,
+         String name,
+         String documento,
+         String telefone,
+         String email
+) {
+    public ClienteResponse(Cliente cliente){
+        this(
+                cliente.getTenantId(),
+                cliente.getName(),
+                cliente.getDocumento(),
+                cliente.getTelefone(),
+                cliente.getEmail()
+        );
+    }
 }

@@ -1,17 +1,19 @@
 package com.cognis.vizion.api.core.obra.obraEmpreiteiro.dto;
 
-import lombok.Data;
+import com.cognis.vizion.api.core.obra.obraEmpreiteiro.ObraEmpreiteiro;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
-public class ObraEmpreiteiroRequest {
-    private Integer id_obra;
-    private Integer id_empreiteiro;
-    private String tenant_id;
-    private String descricao_obra;
-    private LocalDate data_inicio;
-    private LocalDate data_fim;
-    private BigDecimal valor_contratado;
-    private String status;
+public record ObraEmpreiteiroRequest(
+        Integer id_obra,
+        Integer id_empreiteiro,
+        String tenant_id,
+        String descricao_obra,
+        LocalDate data_inicio,
+        LocalDate data_fim,
+        BigDecimal valor_contratado,
+        String status
+) {
+
 }

@@ -1,7 +1,7 @@
 package com.cognis.vizion.api.service;
 
 import com.cognis.vizion.api.core.usuario.Usuario;
-import com.cognis.vizion.api.core.usuario.UsuarioRequest;
+import com.cognis.vizion.api.core.usuario.dto.UsuarioRequest;
 import com.cognis.vizion.api.core.usuario.UsuarioRole;
 import com.cognis.vizion.api.core.usuario.UsuarioStatus;
 import com.cognis.vizion.api.repository.UsuarioRepo;

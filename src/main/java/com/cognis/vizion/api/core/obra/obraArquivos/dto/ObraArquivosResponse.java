@@ -1,11 +1,18 @@
 package com.cognis.vizion.api.core.obra.obraArquivos.dto;
 
-import lombok.Data;
 
-@Data
-public class ObraArquivosResponse {
+import com.cognis.vizion.api.core.obra.obraArquivos.ObraArquivos;
 
-    private String nome_arquivo;
-    private String url_arquivo;
-    private String descricao_arquivo;
+public record ObraArquivosResponse (
+        String nome_arquivo,
+        String url_arquivo,
+        String descricao_arquivo
+) {
+    public ObraArquivosResponse(ObraArquivos obraArquivos){
+        this(
+                obraArquivos.getNome_arquivo(),
+                obraArquivos.getUrl_arquivo(),
+                obraArquivos.getDescricao_arquivo()
+        );
+    }
 }

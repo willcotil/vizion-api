@@ -1,16 +1,20 @@
 package com.cognis.vizion.api.core.funcionario.dto;
 
-import lombok.Data;
 
-@Data
-public class FuncionarioResponse {
-    private String tenantid;
-
-    private String name;
-
-    private String documento;
-
-    private String telefone;
-
-    private String email;
+public record FuncionarioResponse(
+        String tenantid,
+        String name,
+        String documento,
+        String telefone,
+        String email
+) {
+    public FuncionarioResponse(FuncionarioResponse funcionario){
+        this(
+                funcionario.tenantid(),
+                funcionario.name(),
+                funcionario.documento(),
+                funcionario.telefone(),
+                funcionario.email()
+        );
+    }
 }
