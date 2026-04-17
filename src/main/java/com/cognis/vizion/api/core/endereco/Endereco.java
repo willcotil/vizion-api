@@ -1,16 +1,14 @@
 package com.cognis.vizion.api.core.endereco;
 
+import com.cognis.vizion.api.core.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-
-public class Endereco {
+@Table(name = "endereco", schema = "public")
+public class Endereco extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
