@@ -1,0 +1,7 @@
+ALTER TABLE public.cliente ADD COLUMN data_criacao TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE public.cliente ADD COLUMN data_atualizacao TIMESTAMP WITHOUT TIME ZONE;
+ALTER TABLE public.cliente ADD COLUMN criado_por VARCHAR(255) DEFAULT 'SYSTEM';
+ALTER TABLE public.cliente ADD COLUMN atualizado_por VARCHAR(255);
+
+ALTER TABLE public.cliente ALTER COLUMN data_criacao SET NOT NULL;
+ALTER TABLE public.cliente ALTER COLUMN criado_por SET NOT NULL;
