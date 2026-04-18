@@ -9,9 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "endereco", schema = "public")
 public class Endereco extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     @Column(length = 255, nullable = false)
     private String logradouro;
     @Column(length = 20, nullable = false)

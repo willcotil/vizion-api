@@ -1,6 +1,7 @@
 package com.cognis.vizion.api.core.estoque.dto;
 
 import com.cognis.vizion.api.core.estoque.MovimentacaoEstoque;
+import com.cognis.vizion.api.core.estoque.TipoMovimentacao;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 public class MovimentacaoEstoqueResponse {
     private Integer id;
     private Integer id_estoque;
-    private MovimentacaoEstoque.TipoMovimentacao tipo_movimentacao;
+    private TipoMovimentacao tipo_movimentacao;
     private BigDecimal quantidade;
     private BigDecimal valor_unitario;
     private String motivo;

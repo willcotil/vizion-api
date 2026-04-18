@@ -28,9 +28,9 @@ public class EmpreiteiroService extends BaseService<Empreiteiro, EmpreiteiroRequ
     @Override
     @Transactional
     public EmpreiteiroResponse salvar(EmpreiteiroRequest request) {
-        UsuarioResponse usuario = usuarioService.salvar(request.getUsuario());
+        UsuarioResponse usuario = usuarioService.salvar(request.usuario());
         Empreiteiro entity = getMapper().map(request, getEntityClass());
-        entity.setEmail(usuario.getEmail());
+        entity.setEmail(usuario.email());
         entity.setUsuario(mapper.map(usuario, Usuario.class));
         return getMapper().map(getRepo().save(entity), getResponseClass());
     }

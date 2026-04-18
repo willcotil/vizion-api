@@ -17,10 +17,10 @@ public class UsuarioValidator extends BaseValidator<UsuarioRequest>{
     @Override
     protected void validarCampos(UsuarioRequest request) {
 
-        String email = request.getEmail() == null
+        String email = request.email() == null
                 ? ""
-                : request.getEmail().trim().toLowerCase(Locale.ROOT);
-        String senha = request.getSenha();
+                : request.email().trim().toLowerCase(Locale.ROOT);
+        String senha = request.senha();
 
 
         if (email.isBlank()) {

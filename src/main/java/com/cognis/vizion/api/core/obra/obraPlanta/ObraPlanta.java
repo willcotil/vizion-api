@@ -1,10 +1,8 @@
 package com.cognis.vizion.api.core.obra.obraPlanta;
 
 import com.cognis.vizion.api.core.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.cognis.vizion.api.core.obra.Obra;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,8 +17,8 @@ public class ObraPlanta extends BaseEntity {
     @Column(length = 100)
     private String descricao_arquivo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_obra")
-    private Integer id_obra;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_obra", nullable = false)
+    private Obra obra;
 
 }

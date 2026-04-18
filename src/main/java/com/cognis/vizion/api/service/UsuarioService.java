@@ -34,7 +34,7 @@ public class UsuarioService extends BaseService<Usuario, UsuarioRequest, Usuario
 
         Usuario entity = mapper.map(request, Usuario.class);
 
-        entity.setSenha(encoder.encode(request.getSenha()));
+        entity.setSenha(encoder.encode(request.senha()));
         entity.setStatus(UsuarioStatus.PENDENTE);
 
         return mapper.map(repo.save(entity), UsuarioResponse.class);

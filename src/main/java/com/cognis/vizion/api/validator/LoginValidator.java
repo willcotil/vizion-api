@@ -11,9 +11,9 @@ public class LoginValidator extends BaseValidator<LoginRequest> {
 
     @Override
     protected void validarCampos(LoginRequest request) {
-        String email = request.getEmail() == null
+        String email = request.email() == null
                 ? ""
-                : request.getEmail().trim().toLowerCase(Locale.ROOT);
+                : request.email().trim().toLowerCase(Locale.ROOT);
 
         if (email.isBlank()) {
             throw new ValidationException("Email é obrigatório");
@@ -23,7 +23,7 @@ public class LoginValidator extends BaseValidator<LoginRequest> {
             throw new ValidationException("Email inválido");
         }
 
-        if (request.getSenha() == null || request.getSenha().isBlank()) {
+        if (request.senha() == null || request.senha().isBlank()) {
             throw new ValidationException("Senha é obrigatória");
         }
     }

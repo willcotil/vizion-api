@@ -33,11 +33,11 @@ public class AuthService implements UserDetailsService {
     @Transactional
     public Usuario registrar(UsuarioRequest dto) {
         Usuario novoUsuario = new Usuario();
-        novoUsuario.setEmail(dto.getEmail());
-        novoUsuario.setSenha(encoder.encode(dto.getSenha()));
-        novoUsuario.setRole(dto.getRole());
+        novoUsuario.setEmail(dto.email());
+        novoUsuario.setSenha(encoder.encode(dto.senha()));
+        novoUsuario.setRole(dto.role());
 
-        if (dto.getRole() == UsuarioRole.EMPREITEIRO) {
+        if (dto.role() == UsuarioRole.EMPREITEIRO) {
             novoUsuario.setStatus(UsuarioStatus.PENDENTE);
         } else {
             novoUsuario.setStatus(UsuarioStatus.ATIVO);

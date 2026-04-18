@@ -14,7 +14,7 @@ public record ObraPlantaResponse (
                 obraPlanta.getNome_arquivo(),
                 obraPlanta.getUrl_arquivo(),
                 obraPlanta.getDescricao_arquivo(),
-                obraPlanta.getId_obra()
+                obraPlanta.getObra().getId()
         );
     }
 }
