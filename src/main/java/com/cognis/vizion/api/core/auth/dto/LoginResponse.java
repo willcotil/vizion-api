@@ -1,15 +1,15 @@
 package com.cognis.vizion.api.core.auth.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class LoginResponse {
-    private String accessToken;
-    private String refreshToken;
-    private String role;
-    private String tenantId;
+public record LoginResponse (
+         String accessToken,
+         String refreshToken,
+         String role,
+         String tenantId
+){
+    public LoginResponse{
+        if(accessToken == null || accessToken.isBlank()){
+            throw new IllegalArgumentException("Token de acesso não pode ser nulo");
+        }
+    }
 }
