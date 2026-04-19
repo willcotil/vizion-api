@@ -20,21 +20,21 @@ public class RefreshTokenService {
     @Autowired
     private RefreshTokenRepo refreshTokenRepository;
 
-    public RefreshToken createRefreshToken(Usuario usuario) {
+    public RefreshToken criarTokenAtualizacao(Usuario usuario) {
         refreshTokenRepository.deleteByUsuario(usuario);
 
-        RefreshToken refreshToken = new RefreshToken();
-        refreshToken.setUsuario(usuario);
-        refreshToken.setDataExpiracao(Instant.now().plusMillis(refreshTokenDurationMs));
-        refreshToken.setToken(UUID.randomUUID().toString());
+        RefreshToken tokenAtualizacao = new RefreshToken();
+        tokenAtualizacao.setUsuario(usuario);
+        tokenAtualizacao.setDataExpiracao(Instant.now().plusMillis(refreshTokenDurationMs));
+        tokenAtualizacao.setToken(UUID.randomUUID().toString());
 
-        return refreshTokenRepository.save(refreshToken);
+        return refreshTokenRepository.save(tokenAtualizacao);
     }
 
-    public RefreshToken verifyExpiration(RefreshToken token) {
+    public RefreshToken verificarExpiracao(RefreshToken token) {
         if (token.getDataExpiracao().isBefore(Instant.now())) {
             refreshTokenRepository.delete(token);
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Refresh token expirado");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Token de atualização expirado");
         }
         return token;
     }

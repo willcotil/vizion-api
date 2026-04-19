@@ -38,18 +38,18 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginRequest data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
-        var auth = this.authenticationManager.authenticate(usernamePassword);
+        var usuarioSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
+        var autenticacao = this.authenticationManager.authenticate(usuarioSenha);
 
-        var usuario = (Usuario) auth.getPrincipal();
+        var usuario = (Usuario) autenticacao.getPrincipal();
 
         var token = tokenService.gerarToken(usuario);
 
-        var refreshToken = refreshTokenService.createRefreshToken(usuario);
+        var tokenAtualizacao = refreshTokenService.criarTokenAtualizacao(usuario);
 
         return ResponseEntity.ok(new LoginResponse(
                 token,
-                refreshToken.getToken(),
+                tokenAtualizacao.getToken(),
                 usuario.getRole().name(),
                 usuario.getTenant_id()
         ));
@@ -58,7 +58,7 @@ public class AuthController {
     @PostMapping({"/refresh", "/refresh-token"})
     public ResponseEntity<?> refreshToken(@RequestBody RefreshTokenRequest request) {
         return refreshTokenRepo.findByToken(request.refreshToken())
-                .map(refreshTokenService::verifyExpiration)
+                .map(refreshTokenService::verificarExpiracao)
                 .map(RefreshToken::getUsuario)
                 .map(usuario -> {
                     if (!usuario.isEnabled() || !usuario.isAccountNonLocked()) {
@@ -68,7 +68,7 @@ public class AuthController {
                     String accessToken = tokenService.gerarToken(usuario);
                     return ResponseEntity.ok(new TokenRefreshResponse(accessToken, request.refreshToken()));
                 })
-                .orElseThrow(() -> new ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "Refresh token não encontrado no banco!"));
+                .orElseThrow(() -> new ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "Token de atualização não encontrado"));
     }
 
     @GetMapping("/me")
