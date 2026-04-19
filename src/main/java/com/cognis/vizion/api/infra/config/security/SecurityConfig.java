@@ -1,6 +1,7 @@
 package com.cognis.vizion.api.infra.config.security;
 
 import com.cognis.vizion.api.infra.config.tenant.TenantHttpFilter;
+import org.springframework.http.HttpMethod;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
@@ -38,14 +39,120 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/api/auth/login").permitAll()
-                        .requestMatchers("/api/usuario").permitAll()
-                        .requestMatchers("/api/empreiteiro").permitAll()
-                        .requestMatchers("/api/auth/me").permitAll()
-                        .requestMatchers("/api/auth/refresh-token").authenticated()
+                        .requestMatchers("/api/auth/refresh", "/api/auth/refresh-token").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/auth/me").authenticated()
 
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/empreiteiro").permitAll()
+
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/obra",
+                                "/api/obra/**",
+                                "/api/obraMaterial",
+                                "/api/obraMaterial/**",
+                                "/api/ObraArquivos",
+                                "/api/ObraArquivos/**",
+                                "/api/fasesObra",
+                                "/api/fasesObra/**",
+                                "/api/obraProprietarios",
+                                "/api/obraProprietarios/**"
+                        ).hasAnyRole("CLIENTE", "EMPREITEIRO", "FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/obra-financeiro",
+                                "/api/obra-financeiro/**",
+                                "/api/obra-empreiteiro",
+                                "/api/obra-empreiteiro/**",
+                                "/api/empreiteira",
+                                "/api/empreiteira/**"
+                        ).hasAnyRole("EMPREITEIRO", "FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/obra-funcionarios",
+                                "/api/obra-funcionarios/**",
+                                "/api/obraAlocacaoEquipe",
+                                "/api/obraAlocacaoEquipe/**",
+                                "/api/obraPlanta",
+                                "/api/obraPlanta/**",
+                                "/api/endereco",
+                                "/api/endereco/**"
+                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
+
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/obra",
+                                "/api/obra/**",
+                                "/api/obraMaterial",
+                                "/api/obraMaterial/**",
+                                "/api/ObraArquivos",
+                                "/api/ObraArquivos/**",
+                                "/api/fasesObra",
+                                "/api/fasesObra/**",
+                                "/api/obraProprietarios",
+                                "/api/obraProprietarios/**",
+                                "/api/obra-financeiro",
+                                "/api/obra-financeiro/**",
+                                "/api/obra-empreiteiro",
+                                "/api/obra-empreiteiro/**",
+                                "/api/obra-funcionarios",
+                                "/api/obra-funcionarios/**",
+                                "/api/obraAlocacaoEquipe",
+                                "/api/obraAlocacaoEquipe/**",
+                                "/api/obraPlanta",
+                                "/api/obraPlanta/**",
+                                "/api/endereco",
+                                "/api/endereco/**"
+                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT,
+                                "/api/obra",
+                                "/api/obra/**",
+                                "/api/obraMaterial",
+                                "/api/obraMaterial/**",
+                                "/api/ObraArquivos",
+                                "/api/ObraArquivos/**",
+                                "/api/fasesObra",
+                                "/api/fasesObra/**",
+                                "/api/obraProprietarios",
+                                "/api/obraProprietarios/**",
+                                "/api/obra-financeiro",
+                                "/api/obra-financeiro/**",
+                                "/api/obra-empreiteiro",
+                                "/api/obra-empreiteiro/**",
+                                "/api/obra-funcionarios",
+                                "/api/obra-funcionarios/**",
+                                "/api/obraAlocacaoEquipe",
+                                "/api/obraAlocacaoEquipe/**",
+                                "/api/obraPlanta",
+                                "/api/obraPlanta/**",
+                                "/api/endereco",
+                                "/api/endereco/**"
+                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,
+                                "/api/obra",
+                                "/api/obra/**",
+                                "/api/obraMaterial",
+                                "/api/obraMaterial/**",
+                                "/api/ObraArquivos",
+                                "/api/ObraArquivos/**",
+                                "/api/fasesObra",
+                                "/api/fasesObra/**",
+                                "/api/obraProprietarios",
+                                "/api/obraProprietarios/**",
+                                "/api/obra-financeiro",
+                                "/api/obra-financeiro/**",
+                                "/api/obra-empreiteiro",
+                                "/api/obra-empreiteiro/**",
+                                "/api/obra-funcionarios",
+                                "/api/obra-funcionarios/**",
+                                "/api/obraAlocacaoEquipe",
+                                "/api/obraAlocacaoEquipe/**",
+                                "/api/obraPlanta",
+                                "/api/obraPlanta/**",
+                                "/api/endereco",
+                                "/api/endereco/**"
+                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
+
+                        .requestMatchers("/api/usuario", "/api/usuario/**", "/api/cliente", "/api/cliente/**", "/api/funcionario", "/api/funcionario/**", "/api/tenent", "/api/tenent/**").hasRole("ADMIN")
+                        .requestMatchers("/api/empreiteiro", "/api/empreiteiro/**").hasRole("ADMIN")
+
+                        .anyRequest().hasRole("ADMIN")
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(tenantHttpFilter, SecurityFilter.class);

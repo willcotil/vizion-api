@@ -6,6 +6,7 @@ import com.cognis.vizion.api.core.auth.dto.LoginRequest;
 import com.cognis.vizion.api.core.auth.dto.LoginResponse;
 import com.cognis.vizion.api.core.auth.dto.RefreshTokenRequest;
 import com.cognis.vizion.api.core.auth.dto.TokenRefreshResponse;
+import com.cognis.vizion.api.core.usuario.dto.UsuarioResponse;
 import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.repository.RefreshTokenRepo;
 import com.cognis.vizion.api.service.RefreshTokenService;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -52,15 +55,24 @@ public class AuthController {
         ));
     }
 
-    @PostMapping("/refresh")
+    @PostMapping({"/refresh", "/refresh-token"})
     public ResponseEntity<?> refreshToken(@RequestBody RefreshTokenRequest request) {
         return refreshTokenRepo.findByToken(request.refreshToken())
                 .map(refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUsuario)
                 .map(usuario -> {
+                    if (!usuario.isEnabled() || !usuario.isAccountNonLocked()) {
+                        throw new ResponseStatusException(org.springframework.http.HttpStatus.FORBIDDEN, "Usuário sem acesso");
+                    }
+
                     String accessToken = tokenService.gerarToken(usuario);
                     return ResponseEntity.ok(new TokenRefreshResponse(accessToken, request.refreshToken()));
                 })
-                .orElseThrow(() -> new RuntimeException("Refresh token não encontrado no banco!"));
+                .orElseThrow(() -> new ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "Refresh token não encontrado no banco!"));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UsuarioResponse> me(@AuthenticationPrincipal Usuario usuario) {
+        return ResponseEntity.ok(new UsuarioResponse(usuario));
     }
 }

@@ -3,7 +3,9 @@ package com.cognis.vizion.api.service;
 import com.cognis.vizion.api.core.empreiteiro.Empreiteiro;
 import com.cognis.vizion.api.core.empreiteiro.dto.EmpreiteiroRequest;
 import com.cognis.vizion.api.core.empreiteiro.dto.EmpreiteiroResponse;
+import com.cognis.vizion.api.core.usuario.UsuarioRole;
 import com.cognis.vizion.api.core.usuario.Usuario;
+import com.cognis.vizion.api.core.usuario.dto.UsuarioRequest;
 import com.cognis.vizion.api.core.usuario.dto.UsuarioResponse;
 import com.cognis.vizion.api.repository.EmpreiteiroRepo;
 import jakarta.transaction.Transactional;
@@ -28,7 +30,15 @@ public class EmpreiteiroService extends BaseService<Empreiteiro, EmpreiteiroRequ
     @Override
     @Transactional
     public EmpreiteiroResponse salvar(EmpreiteiroRequest request) {
-        UsuarioResponse usuario = usuarioService.salvar(request.usuario());
+        UsuarioRequest usuarioRequest = request.usuario();
+        UsuarioResponse usuario = usuarioService.salvar(
+                new UsuarioRequest(
+                        usuarioRequest.email(),
+                        usuarioRequest.senha(),
+                        usuarioRequest.status(),
+                        UsuarioRole.EMPREITEIRO
+                )
+        );
         Empreiteiro entity = getMapper().map(request, getEntityClass());
         entity.setEmail(usuario.email());
         entity.setUsuario(mapper.map(usuario, Usuario.class));

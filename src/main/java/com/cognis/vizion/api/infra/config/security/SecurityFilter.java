@@ -40,11 +40,13 @@ public class SecurityFilter extends OncePerRequestFilter {
                 var usuario = usuarioRepository.findByEmail(email)
                         .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
-                var auth = new UsernamePasswordAuthenticationToken(
-                        usuario, null, usuario.getAuthorities()
-                );
+                if (usuario.isEnabled() && usuario.isAccountNonLocked()) {
+                    var auth = new UsernamePasswordAuthenticationToken(
+                            usuario, null, usuario.getAuthorities()
+                    );
 
-                SecurityContextHolder.getContext().setAuthentication(auth);
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                }
             }
         }
 

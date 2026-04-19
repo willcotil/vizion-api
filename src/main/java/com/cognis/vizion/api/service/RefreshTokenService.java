@@ -6,6 +6,8 @@ import com.cognis.vizion.api.repository.RefreshTokenRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -32,7 +34,7 @@ public class RefreshTokenService {
     public RefreshToken verifyExpiration(RefreshToken token) {
         if (token.getDataExpiracao().isBefore(Instant.now())) {
             refreshTokenRepository.delete(token);
-            throw new RuntimeException("Por Favor, faça login novamente.");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Refresh token expirado");
         }
         return token;
     }
