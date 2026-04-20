@@ -1,15 +1,28 @@
 package com.cognis.vizion.api.core.estoque.dto;
 
-import lombok.Data;
+
+import com.cognis.vizion.api.core.estoque.Material;
+
 import java.math.BigDecimal;
 
-@Data
-public class MaterialResponse {
-    private Integer id;
-    private String nome_material;
-    private String descricao_material;
-    private String unidade_medida;
-    private BigDecimal preco_unitario;
-    private String categoria;
-    private boolean ativo;
+public record MaterialResponse(
+        Integer id,
+        String nome_material,
+        String descricao_material,
+        String unidade_medida,
+        BigDecimal preco_unitario,
+        String categoria,
+        boolean ativo
+) {
+    public MaterialResponse(Material material){
+        this(
+                material.getId(),
+                material.getNome_material(),
+                material.getDescricao_material(),
+                material.getUnidade_medida(),
+                material.getPreco_unitario(),
+                material.getCategoria(),
+                material.isAtivo()
+        );
+    }
 }

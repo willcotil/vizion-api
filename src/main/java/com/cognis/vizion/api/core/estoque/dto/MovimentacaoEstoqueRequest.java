@@ -1,19 +1,20 @@
 package com.cognis.vizion.api.core.estoque.dto;
 
-import com.cognis.vizion.api.core.estoque.MovimentacaoEstoque;
+
 import com.cognis.vizion.api.core.estoque.TipoMovimentacao;
-import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
-public class MovimentacaoEstoqueRequest {
-    private Integer id_estoque;
-    private TipoMovimentacao tipo_movimentacao;
-    private BigDecimal quantidade;
-    private BigDecimal valor_unitario;
-    private String motivo;
-    private String referencia;
-    private LocalDateTime data_movimentacao;
-    private String usuario_responsavel;
+public record MovimentacaoEstoqueRequest (
+        Integer id_estoque,
+        TipoMovimentacao tipo_movimentacao,
+        BigDecimal quantidade,
+        BigDecimal valor_unitario,
+        String motivo,
+        String referencia,
+        LocalDateTime data_movimentacao,
+        String usuario_responsavel
+){
+
 }
