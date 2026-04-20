@@ -11,4 +11,6 @@ CREATE TABLE public.endereco(
     data_atualizacao TIMESTAMP WITHOUT TIME ZONE,
     criado_por NOT NULL VARCHAR(255) DEFAULT 'SYSTEM',
     atualizado_por VARCHAR(255)
+
+
 );

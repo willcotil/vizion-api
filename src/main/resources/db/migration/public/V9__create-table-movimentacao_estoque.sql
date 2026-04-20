@@ -12,4 +12,7 @@ CREATE TABLE public.movimentacao_estoque(
     data_atualizacao TIMESTAMP WITHOUT TIME ZONE,
     criado_por NOT NULL VARCHAR(255) DEFAULT 'SYSTEM',
     atualizado_por VARCHAR(255)
+
+    CONSTRAINT FOREIGN KEY (id_estoque) REFERENCES estoque(id)
+    CONSTRAINT FOREIGN KEY (id_tipo_movimentacao) REFERENCES tipo_movimentacao(id)
 );

@@ -9,4 +9,8 @@ CREATE TABLE public.usuario(
     data_atualizacao TIMESTAMP WITHOUT TIME ZONE,
     criado_por NOT NULL VARCHAR(255) DEFAULT 'SYSTEM',
     atualizado_por VARCHAR(255)
+
+    CONSTRAINT FOREIGN KEY (id_status) REFERENCES status(id)
+    CONSTRAINT FOREIGN KEY (id_role) REFERENCES role(id)
+    CONSTRAINT FOREIGN KEY (id_tenant) REFERENCES tenant(id)
 );
