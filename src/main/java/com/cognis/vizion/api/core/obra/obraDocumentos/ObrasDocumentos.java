@@ -14,6 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ObrasDocumentos extends BaseEntity {
 
+    @Column(length = 50, nullable = false)
+    private String tenant_id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_obra", nullable = false)
     private Obra obra;

@@ -73,6 +73,7 @@ public class ObrasDocumentosService extends BaseService<ObrasDocumentos, ObrasDo
         Obra obra = obraRepo.findById(idObra)
                 .orElseThrow(() -> new RuntimeException("Obra não encontrada: " + idObra));
         entity.setObra(obra);
+        entity.setTenant_id(obra.getTenant_id());
 
         return new ObrasDocumentosResponse(repo.save(entity));
     }

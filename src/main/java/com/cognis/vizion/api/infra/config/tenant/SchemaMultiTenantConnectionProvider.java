@@ -29,8 +29,8 @@ public class SchemaMultiTenantConnectionProvider extends AbstractDataSourceBased
     @Override
     public Connection getConnection(Object tenantIdentifier) throws SQLException {
         Connection connection = super.getConnection(tenantIdentifier);
-        String tenant = tenantIdentifier.toString();
-        connection.createStatement().execute("SET search_path TO " + tenant);
+        String tenant = tenantIdentifier.toString().replace("\"", "\"\"");
+        connection.createStatement().execute("SET search_path TO \"" + tenant + "\", public");
         return connection;
     }
 

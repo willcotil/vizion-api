@@ -6,6 +6,7 @@ import com.cognis.vizion.api.core.obra.obraDocumentos.TipoDocumento;
 public record ObrasDocumentosResponse(
         Integer id,
         Integer id_obra,
+        String tenant_id,
         TipoDocumento tipo_documento,
         String nome_arquivo,
         String url_arquivo,
@@ -15,6 +16,7 @@ public record ObrasDocumentosResponse(
         this(
                 obrasDocumentos.getId(),
                 obrasDocumentos.getObra().getId(),
+                obrasDocumentos.getTenant_id(),
                 obrasDocumentos.getTipo_documento(),
                 obrasDocumentos.getNome_arquivo(),
                 obrasDocumentos.getUrl_arquivo(),
