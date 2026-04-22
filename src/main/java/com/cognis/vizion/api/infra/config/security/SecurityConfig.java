@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/index.html", "/assets/**", "/favicon.ico", "/manifest.webmanifest", "/error").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/api/auth/login").permitAll()
                         .requestMatchers("/api/auth/refresh", "/api/auth/refresh-token").permitAll()
@@ -50,8 +51,8 @@ public class SecurityConfig {
                                 "/api/obra/**",
                                 "/api/obraMaterial",
                                 "/api/obraMaterial/**",
-                                "/api/ObraArquivos",
-                                "/api/ObraArquivos/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/fasesObra",
                                 "/api/fasesObra/**",
                                 "/api/obraProprietarios",
@@ -68,10 +69,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,
                                 "/api/obra-funcionarios",
                                 "/api/obra-funcionarios/**",
-                                "/api/obraAlocacaoEquipe",
-                                "/api/obraAlocacaoEquipe/**",
-                                "/api/obraPlanta",
-                                "/api/obraPlanta/**",
                                 "/api/endereco",
                                 "/api/endereco/**"
                         ).hasAnyRole("FUNCIONARIO", "ADMIN")
@@ -81,8 +78,8 @@ public class SecurityConfig {
                                 "/api/obra/**",
                                 "/api/obraMaterial",
                                 "/api/obraMaterial/**",
-                                "/api/ObraArquivos",
-                                "/api/ObraArquivos/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/fasesObra",
                                 "/api/fasesObra/**",
                                 "/api/obraProprietarios",
@@ -93,10 +90,6 @@ public class SecurityConfig {
                                 "/api/obra-empreiteiro/**",
                                 "/api/obra-funcionarios",
                                 "/api/obra-funcionarios/**",
-                                "/api/obraAlocacaoEquipe",
-                                "/api/obraAlocacaoEquipe/**",
-                                "/api/obraPlanta",
-                                "/api/obraPlanta/**",
                                 "/api/endereco",
                                 "/api/endereco/**"
                         ).hasAnyRole("FUNCIONARIO", "ADMIN")
@@ -105,8 +98,8 @@ public class SecurityConfig {
                                 "/api/obra/**",
                                 "/api/obraMaterial",
                                 "/api/obraMaterial/**",
-                                "/api/ObraArquivos",
-                                "/api/ObraArquivos/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/fasesObra",
                                 "/api/fasesObra/**",
                                 "/api/obraProprietarios",
@@ -117,10 +110,8 @@ public class SecurityConfig {
                                 "/api/obra-empreiteiro/**",
                                 "/api/obra-funcionarios",
                                 "/api/obra-funcionarios/**",
-                                "/api/obraAlocacaoEquipe",
-                                "/api/obraAlocacaoEquipe/**",
-                                "/api/obraPlanta",
-                                "/api/obraPlanta/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/endereco",
                                 "/api/endereco/**"
                         ).hasAnyRole("FUNCIONARIO", "ADMIN")
@@ -129,8 +120,8 @@ public class SecurityConfig {
                                 "/api/obra/**",
                                 "/api/obraMaterial",
                                 "/api/obraMaterial/**",
-                                "/api/ObraArquivos",
-                                "/api/ObraArquivos/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/fasesObra",
                                 "/api/fasesObra/**",
                                 "/api/obraProprietarios",
@@ -141,10 +132,8 @@ public class SecurityConfig {
                                 "/api/obra-empreiteiro/**",
                                 "/api/obra-funcionarios",
                                 "/api/obra-funcionarios/**",
-                                "/api/obraAlocacaoEquipe",
-                                "/api/obraAlocacaoEquipe/**",
-                                "/api/obraPlanta",
-                                "/api/obraPlanta/**",
+                                "/api/obrasDocumentos",
+                                "/api/obrasDocumentos/**",
                                 "/api/endereco",
                                 "/api/endereco/**"
                         ).hasAnyRole("FUNCIONARIO", "ADMIN")

@@ -2,8 +2,8 @@ package com.cognis.vizion.api.core.obra;
 
 import com.cognis.vizion.api.core.BaseEntity;
 import com.cognis.vizion.api.core.endereco.Endereco;
+import com.cognis.vizion.api.core.obra.obraDocumentos.ObrasDocumentos;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
-import com.cognis.vizion.api.core.obra.obraPlanta.ObraPlanta;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,5 +37,5 @@ public class Obra extends BaseEntity {
     private List<ObraFinanceiro> financeiro;
 
     @OneToMany(mappedBy = "obra", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ObraPlanta> planta;
+    private List<ObrasDocumentos> documentos;
 }
