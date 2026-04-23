@@ -1,7 +1,8 @@
 package com.cognis.vizion.api.core.obra.fasesObra.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public record FasesObraStatusTransitionRequest(
-        String acao
+        @NotBlank String acao
 ) {
 }
-

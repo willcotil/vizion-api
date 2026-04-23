@@ -4,7 +4,6 @@ import com.cognis.vizion.api.core.estoque.Estoque;
 import com.cognis.vizion.api.core.estoque.MovimentacaoEstoque;
 import com.cognis.vizion.api.core.estoque.TipoMovimentacao;
 import com.cognis.vizion.api.core.obra.fasesObra.FasesObra;
-import com.cognis.vizion.api.core.obra.fasesObra.state.FasesObraStatus;
 import com.cognis.vizion.api.core.obra.obraMaterial.ObraMaterial;
 import com.cognis.vizion.api.infra.exception.ValidationException;
 import com.cognis.vizion.api.repository.EstoqueRepo;
@@ -63,4 +62,3 @@ public class FasesObraEstoqueSyncService {
         }
     }
 }
-
