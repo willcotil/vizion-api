@@ -27,8 +27,8 @@ public record ObraFinanceiroResponse (
                 obraFinanceiro.getDataPagamento(),
                 obraFinanceiro.getDataEstimado(),
                 obraFinanceiro.isPago(),
-                obraFinanceiro.getId(),
-                obraFinanceiro.getId()
+                obraFinanceiro.getObra() != null ? obraFinanceiro.getObra().getId() : null,
+                obraFinanceiro.getMaterial() != null ? obraFinanceiro.getMaterial().getId() : null
         );
     }
 }

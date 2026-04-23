@@ -2,7 +2,7 @@ package com.cognis.vizion.api.core.obra.fasesObra.state;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("fasesObraCanceladaState")
 public class CanceladaState extends AbstractFasesObraState {
     @Override
     public FasesObraStatus getStatus() {
@@ -14,4 +14,3 @@ public class CanceladaState extends AbstractFasesObraState {
         throw transicaoInvalida(acao);
     }
 }
-

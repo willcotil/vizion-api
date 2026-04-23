@@ -30,7 +30,7 @@ public class FasesObraEstoqueSyncService {
             throw new ValidationException("Fase de obra invalida para sincronizar estoque");
         }
 
-        List<ObraMaterial> materiais = obraMaterialRepo.findByFases_obra_Id(fase.getId());
+        List<ObraMaterial> materiais = obraMaterialRepo.findByFaseId(fase.getId());
         if (materiais.isEmpty()) {
             return;
         }

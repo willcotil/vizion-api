@@ -58,7 +58,7 @@ class FasesObraEstoqueSyncServiceTest {
         estoque.setMaterial(material);
         estoque.setQuantidade_atual(new BigDecimal("10.0"));
 
-        when(obraMaterialRepo.findByFases_obra_Id(10)).thenReturn(List.of(obraMaterial));
+        when(obraMaterialRepo.findByFaseId(10)).thenReturn(List.of(obraMaterial));
         when(estoqueRepo.findFirstByMaterial_IdAndAtivoTrue(7)).thenReturn(Optional.of(estoque));
         when(estoqueRepo.save(any(Estoque.class))).thenAnswer(invocation -> invocation.getArgument(0));
         when(movimentacaoEstoqueRepo.save(any(MovimentacaoEstoque.class))).thenAnswer(invocation -> invocation.getArgument(0));
@@ -97,7 +97,7 @@ class FasesObraEstoqueSyncServiceTest {
         estoque.setMaterial(material);
         estoque.setQuantidade_atual(new BigDecimal("3"));
 
-        when(obraMaterialRepo.findByFases_obra_Id(11)).thenReturn(List.of(obraMaterial));
+        when(obraMaterialRepo.findByFaseId(11)).thenReturn(List.of(obraMaterial));
         when(estoqueRepo.findFirstByMaterial_IdAndAtivoTrue(8)).thenReturn(Optional.of(estoque));
 
         ValidationException exception = assertThrows(ValidationException.class,
@@ -108,4 +108,3 @@ class FasesObraEstoqueSyncServiceTest {
         verify(movimentacaoEstoqueRepo, never()).save(any());
     }
 }
-

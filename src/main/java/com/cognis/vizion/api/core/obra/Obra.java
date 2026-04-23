@@ -2,10 +2,12 @@ package com.cognis.vizion.api.core.obra;
 
 import com.cognis.vizion.api.core.BaseEntity;
 import com.cognis.vizion.api.core.endereco.Endereco;
+import com.cognis.vizion.api.core.obra.fasesObra.FasesObra;
 import com.cognis.vizion.api.core.obra.obraDocumentos.ObrasDocumentos;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class Obra extends BaseEntity {
 
@@ -21,7 +24,7 @@ public class Obra extends BaseEntity {
     private String tenant_id;
     @Column(length = 150, nullable = false)
     private String nome_projeto;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;
     @Column(nullable = false)
@@ -33,7 +36,10 @@ public class Obra extends BaseEntity {
     @Column(length = 20, nullable = false)
     private String status;
 
-    @OneToMany(mappedBy = "obra", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "obra", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FasesObra> fases;
+
+    @OneToMany(mappedBy = "obra", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ObraFinanceiro> financeiro;
 
     @OneToMany(mappedBy = "obra", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -2,7 +2,7 @@ package com.cognis.vizion.api.core.obra.fasesObra.state;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("fasesObraPlanejadaState")
 public class PlanejadaState extends AbstractFasesObraState {
     @Override
     public FasesObraStatus getStatus() {
@@ -18,4 +18,3 @@ public class PlanejadaState extends AbstractFasesObraState {
         };
     }
 }
-
