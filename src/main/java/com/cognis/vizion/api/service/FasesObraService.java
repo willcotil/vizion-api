@@ -8,10 +8,10 @@ import com.cognis.vizion.api.core.obra.fasesObra.dto.FasesObraStatusTransitionRe
 import com.cognis.vizion.api.core.obra.fasesObra.state.FasesObraAcao;
 import com.cognis.vizion.api.core.obra.fasesObra.state.FasesObraStatus;
 import com.cognis.vizion.api.facade.FasesObraFacade;
+import com.cognis.vizion.api.mapper.FasesObraMapper;
 import com.cognis.vizion.api.repository.FasesObraRepo;
 import com.cognis.vizion.api.repository.ObraRepo;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,12 +21,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class FasesObraService extends BaseService<FasesObra, FasesObraRequest, FasesObraResponse, Integer> {
     private final FasesObraRepo repo;
     private final ObraRepo obraRepo;
-    private final ModelMapper mapper;
+    private final FasesObraMapper mapper;
     private final FasesObraFacade fasesObraFacade;
     private final FasesObraEstoqueSyncService estoqueSyncService;
 
     @Override protected JpaRepository<FasesObra, Integer> getRepo() { return repo; }
-    @Override protected ModelMapper getMapper() { return mapper; }
+    @Override protected FasesObraMapper getMapper() { return mapper; }
     @Override protected Class<FasesObra> getEntityClass() { return FasesObra.class; }
     @Override protected Class<FasesObraResponse> getResponseClass() { return FasesObraResponse.class; }
 
@@ -54,7 +54,7 @@ public class FasesObraService extends BaseService<FasesObra, FasesObraRequest, F
         FasesObraAcao acao = FasesObraAcao.from(request.acao());
         fasesObraFacade.transicionarStatus(fase, acao);
 
-        FasesObraResponse response = mapper.map(repo.save(fase), FasesObraResponse.class);
+        FasesObraResponse response = mapper.toResponse(repo.save(fase));
 
         if (FasesObraStatus.from(fase.getStatus()) == FasesObraStatus.EM_ANDAMENTO) {
             estoqueSyncService.registrarConsumoInicial(fase);
@@ -80,7 +80,7 @@ public class FasesObraService extends BaseService<FasesObra, FasesObraRequest, F
         entity.setOrdem_exibicao(request.ordem_exibicao());
         entity.setObra(resolveObra(request.id_obra()));
 
-        return new FasesObraResponse(repo.save(entity));
+        return mapper.toResponse(repo.save(entity));
     }
 
     private Obra resolveObra(Integer idObra) {

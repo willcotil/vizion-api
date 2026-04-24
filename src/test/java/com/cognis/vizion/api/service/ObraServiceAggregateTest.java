@@ -6,6 +6,7 @@ import com.cognis.vizion.api.core.estoque.Material;
 import com.cognis.vizion.api.core.obra.Obra;
 import com.cognis.vizion.api.core.obra.dto.ObraAggregateRequest;
 import com.cognis.vizion.api.core.obra.dto.ObraDetailResponse;
+import com.cognis.vizion.api.core.obra.dto.ObraResponse;
 import com.cognis.vizion.api.core.obra.fasesObra.FasesObra;
 import com.cognis.vizion.api.core.obra.fasesObra.dto.FasesObraItemRequest;
 import com.cognis.vizion.api.core.obra.obraDocumentos.ObrasDocumentos;
@@ -27,7 +28,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
+import com.cognis.vizion.api.mapper.ObraMapper;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -66,7 +67,7 @@ class ObraServiceAggregateTest {
 
     @Mock
     @SuppressWarnings("unused")
-    private ModelMapper mapper;
+    private ObraMapper mapper;
 
     @Mock
     @SuppressWarnings("unused")
@@ -77,6 +78,8 @@ class ObraServiceAggregateTest {
 
     @Test
     void deveSalvarObraAggregadaComFilhos() {
+        when(mapper.toResponse(any(Obra.class))).thenAnswer(invocation -> new ObraResponse(invocation.getArgument(0)));
+
         Date dataInicio = new Date(1_700_000_000_000L);
         Date dataEntrega = new Date(1_700_086_400_000L);
 
@@ -173,6 +176,8 @@ class ObraServiceAggregateTest {
 
     @Test
     void deveAtualizarObraAggregadaReutilizandoEntidadesExistentes() {
+        when(mapper.toResponse(any(Obra.class))).thenAnswer(invocation -> new ObraResponse(invocation.getArgument(0)));
+
         Date dataInicio = new Date(1_700_000_000_000L);
         Date dataEntrega = new Date(1_700_086_400_000L);
 

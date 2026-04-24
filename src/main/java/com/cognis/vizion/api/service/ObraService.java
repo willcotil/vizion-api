@@ -17,6 +17,7 @@ import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.dto.ObraFinanceiroItemRequest;
 import com.cognis.vizion.api.core.obra.state.ObraAcao;
 import com.cognis.vizion.api.facade.ObraFacade;
+import com.cognis.vizion.api.mapper.ObraMapper;
 import com.cognis.vizion.api.repository.EnderecoRepo;
 import com.cognis.vizion.api.repository.FasesObraRepo;
 import com.cognis.vizion.api.repository.MaterialRepo;
@@ -24,7 +25,6 @@ import com.cognis.vizion.api.repository.ObraFinanceiroRepo;
 import com.cognis.vizion.api.repository.ObraRepo;
 import com.cognis.vizion.api.repository.ObrasDocumentosRepo;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,11 +41,11 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
     private final FasesObraRepo fasesObraRepo;
     private final ObraFinanceiroRepo obraFinanceiroRepo;
     private final ObrasDocumentosRepo obrasDocumentosRepo;
-    private final ModelMapper mapper;
+    private final ObraMapper mapper;
     private final ObraFacade obraFacade;
 
     @Override protected JpaRepository<Obra, Integer> getRepo() { return repo; }
-    @Override protected ModelMapper getMapper() { return mapper; }
+    @Override protected ObraMapper getMapper() { return mapper; }
     @Override protected Class<Obra> getEntityClass() { return Obra.class; }
     @Override protected Class<ObraResponse> getResponseClass() { return ObraResponse.class; }
 
@@ -73,7 +73,7 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
         ObraAcao acao = ObraAcao.from(request.acao());
         obraFacade.transicionarStatus(obra, acao);
 
-        return mapper.map(repo.save(obra), ObraResponse.class);
+        return mapper.toResponse(repo.save(obra));
     }
 
     @Transactional
@@ -108,7 +108,7 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
             entity.setEndereco(endereco);
         }
 
-        return new ObraResponse(repo.save(entity));
+        return mapper.toResponse(repo.save(entity));
     }
 
     private ObraDetailResponse salvarOuAtualizarAggregate(ObraAggregateRequest request, Integer id) {

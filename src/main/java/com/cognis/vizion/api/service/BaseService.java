@@ -1,33 +1,33 @@
 package com.cognis.vizion.api.service;
 
 import com.cognis.vizion.api.core.BaseEntity;
-import org.modelmapper.ModelMapper;
+import com.cognis.vizion.api.mapper.CrudMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public abstract class BaseService<T extends BaseEntity, REQ, RES, ID> implements IGenericService<REQ, RES, ID> {
     protected abstract JpaRepository<T, ID> getRepo();
-    protected abstract ModelMapper getMapper();
+    protected abstract CrudMapper<T, REQ, RES> getMapper();
     protected abstract Class<T> getEntityClass();
     protected abstract Class<RES> getResponseClass();
 
     @Override
     public RES salvar(REQ request) {
-        T entity = getMapper().map(request, getEntityClass());
-        return getMapper().map(getRepo().save(entity), getResponseClass());
+        T entity = getMapper().toEntity(request);
+        return getMapper().toResponse(getRepo().save(entity));
     }
 
     @Override
     public List<RES> getAll() {
         return getRepo().findAll().stream()
-                .map(i -> getMapper().map(i, getResponseClass()))
+                .map(getMapper()::toResponse)
                 .toList();
     }
 
     @Override
     public RES getOne(ID id) {
         return getRepo().findById(id)
-                .map(i -> getMapper().map(i, getResponseClass()))
+                .map(getMapper()::toResponse)
                 .orElseThrow(() -> new RuntimeException("Registro não encontrado: " + id));
     }
 
@@ -46,10 +46,10 @@ public abstract class BaseService<T extends BaseEntity, REQ, RES, ID> implements
             throw new RuntimeException("Registro não encontrado para atualização: " + id);
         }
 
-        T entity = getMapper().map(request, getEntityClass());
+        T entity = getMapper().toEntity(request);
 
         entity.setId((Integer) id);
 
-        return getMapper().map(getRepo().save(entity), getResponseClass());
+        return getMapper().toResponse(getRepo().save(entity));
     }
 }

@@ -3,9 +3,9 @@ package com.cognis.vizion.api.service;
 import com.cognis.vizion.api.core.endereco.Endereco;
 import com.cognis.vizion.api.core.endereco.dto.EnderecoRequest;
 import com.cognis.vizion.api.core.endereco.dto.EnderecoResponse;
+import com.cognis.vizion.api.mapper.EnderecoMapper;
 import com.cognis.vizion.api.repository.EnderecoRepo;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EnderecoService extends BaseService<Endereco, EnderecoRequest, EnderecoResponse, Integer>{
     private final EnderecoRepo repo;
-    private final ModelMapper mapper;
+    private final EnderecoMapper mapper;
 
     @Override
     protected JpaRepository<Endereco, Integer> getRepo() {
@@ -21,7 +21,7 @@ public class EnderecoService extends BaseService<Endereco, EnderecoRequest, Ende
     }
 
     @Override
-    protected ModelMapper getMapper() {
+    protected EnderecoMapper getMapper() {
         return mapper;
     }
 

@@ -4,10 +4,10 @@ import com.cognis.vizion.api.core.obra.Obra;
 import com.cognis.vizion.api.core.obra.obraDocumentos.ObrasDocumentos;
 import com.cognis.vizion.api.core.obra.obraDocumentos.dto.ObrasDocumentosRequest;
 import com.cognis.vizion.api.core.obra.obraDocumentos.dto.ObrasDocumentosResponse;
+import com.cognis.vizion.api.mapper.ObrasDocumentosMapper;
 import com.cognis.vizion.api.repository.ObraRepo;
 import com.cognis.vizion.api.repository.ObrasDocumentosRepo;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class ObrasDocumentosService extends BaseService<ObrasDocumentos, ObrasDo
 
     private final ObrasDocumentosRepo repo;
     private final ObraRepo obraRepo;
-    private final ModelMapper mapper;
+    private final ObrasDocumentosMapper mapper;
 
     @Override
     protected JpaRepository<ObrasDocumentos, Integer> getRepo() {
@@ -25,7 +25,7 @@ public class ObrasDocumentosService extends BaseService<ObrasDocumentos, ObrasDo
     }
 
     @Override
-    protected ModelMapper getMapper() {
+    protected ObrasDocumentosMapper getMapper() {
         return mapper;
     }
 
@@ -75,6 +75,6 @@ public class ObrasDocumentosService extends BaseService<ObrasDocumentos, ObrasDo
         entity.setObra(obra);
         entity.setTenant_id(obra.getTenant_id());
 
-        return new ObrasDocumentosResponse(repo.save(entity));
+        return mapper.toResponse(repo.save(entity));
     }
 }
