@@ -1,0 +1,15 @@
+ __      _______ ___________ ____  _   _
+ \ \    / /_   _|___  /_   _/ __ \| \ | |
+  \ \  / /  | |    / /  | || |  | |  \| |
+   \ \/ /   | |   / /   | || |  | | . ` |
+    \  /   _| |_ / /__ _| || |__| | |\  |
+     \/   |_____/_____|_____\____/|_| \_|
+
+By Cognis Group 2026:
+- Felipe De Paula
+- Vitoŕia de Araújo Abila
+- Vitor Marção
+- Yure de Souza Damasceno
+
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}

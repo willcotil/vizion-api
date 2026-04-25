@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bbe15c81-e404-4b13-8de1-5cdf9437074b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ReadMe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/VizionApiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ClienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/EmpreiteiraController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/EmpreiteiroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/EnderecoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/FasesObraController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/FuncionarioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/GenericController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraEmpreiteiroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraFinanceiroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraFuncionariosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraMaterialController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObraProprietariosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/ObrasDocumentosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/TenentIndentifierController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/controller/UsuarioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/auth/RefreshToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/auth/dto/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/auth/dto/LoginResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/auth/dto/RefreshTokenRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/auth/dto/TokenRefreshResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/cliente/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/cliente/dto/ClienteRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/cliente/dto/ClienteResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteira/Empreiteira.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteira/dto/EmpreiteiraRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteira/dto/EmpreiteraResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteiro/Empreiteiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteiro/dto/EmpreiteiroRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/empreiteiro/dto/EmpreiteiroResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/endereco/Endereco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/endereco/dto/EnderecoRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/endereco/dto/EnderecoResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/error/dto/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/Estoque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/Material.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/MovimentacaoEstoque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/TipoMovimentacao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/EstoqueRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/EstoqueResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/MaterialRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/MaterialResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/MovimentacaoEstoqueRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/estoque/dto/MovimentacaoEstoqueResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/funcionario/Funcionario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/funcionario/dto/FuncionarioRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/funcionario/dto/FuncionarioResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/Obra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraAggregateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraDetailResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraStatusTransitionRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/dto/ObraSummaryResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/FasesObra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/dto/FasesObraItemRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/dto/FasesObraRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/dto/FasesObraResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/dto/FasesObraStatusTransitionRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/AbstractFasesObraState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/CanceladaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/EmAndamentoState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/FasesObraAcao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/FasesObraState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/FasesObraStateFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/FasesObraStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/FinalizadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/PausadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/fasesObra/state/PlanejadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraDocumentos/ObrasDocumentos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraDocumentos/TipoDocumento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraDocumentos/dto/ObrasDocumentosItemRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraDocumentos/dto/ObrasDocumentosRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraDocumentos/dto/ObrasDocumentosResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraEmpreiteiro/ObraEmpreiteiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraEmpreiteiro/dto/ObraEmpreiteiroRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraEmpreiteiro/dto/ObraEmpreiteiroResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFinanceiro/ObraFinanceiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFinanceiro/TipoFinanceiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFinanceiro/dto/ObraFinanceiroItemRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFinanceiro/dto/ObraFinanceiroRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFinanceiro/dto/ObraFinanceiroResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFuncionarios/ObraFuncionarios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFuncionarios/dto/ObraFuncionariosRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraFuncionarios/dto/ObraFuncionariosResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraMaterial/ObraMaterial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraMaterial/dto/ObraMaterialRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraMaterial/dto/ObraMaterialResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraPropietarios/ObraProprietarios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraPropietarios/dto/ObraProprietariosRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/obraPropietarios/dto/ObraProprietariosResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/AbstractObraState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/CanceladaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/EmAndamentoState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/FinalizadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/ObraAcao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/ObraState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/ObraStateFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/ObraStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/PausadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/obra/state/PlanejadaState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/tenent/TenentIndentifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/tenent/dto/TenentIndentifierRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/tenent/dto/TenentIndentifierResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/usuario/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/usuario/UsuarioRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/usuario/UsuarioStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/usuario/dto/UsuarioRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/core/usuario/dto/UsuarioResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/facade/FasesObraFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/facade/ObraFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/auditor/AuditorAwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/jpa/JpaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/migration/FlywayConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/security/SecurityFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/tenant/MultiTenantConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/tenant/SchemaMultiTenantConnectionProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/tenant/TenantContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/tenant/TenantHttpFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/tenant/TenantIdentifierResolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/utils/MapStructConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/utils/ModelMapperConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/config/web/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/exception/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/exception/ValidationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/infra/interceptor/LoggingInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ClienteMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/CrudMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/EmpreiteiraMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/EmpreiteiroMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/EnderecoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/EstoqueMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/FasesObraMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/FuncionarioMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/MaterialMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/MovimentacaoEstoqueMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraEmpreiteiroMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraFinanceiroMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraFuncionariosMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraMaterialMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObraProprietariosMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/ObrasDocumentosMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/TenentIndentifierMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/mapper/UsuarioMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ClienteRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/EmpreiteiraRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/EmpreiteiroRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/EnderecoRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/EstoqueRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/FasesObraRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/FuncionarioRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/MaterialRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/MovimentacaoEstoqueRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraEmpreiteiroRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraFinanceiroRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraFuncionariosRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraMaterialRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraProprietariosRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObraRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/ObrasDocumentosRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/RefreshTokenRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/TenentIndentifierRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/repository/UsuarioRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/BaseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ClienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/EmpreiteiraService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/EmpreiteiroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/EnderecoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/EstoqueService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/FasesObraEstoqueSyncService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/FasesObraService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/FuncionarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/IGenericService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/MaterialService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/MovimentacaoEstoqueService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraEmpreiteiroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraFinanceiroService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraFuncionariosService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraMaterialService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraProprietariosService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObraService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/ObrasDocumentosService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/RefreshTokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/TenentIndentifierService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/TokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/service/UsuarioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/validator/BaseValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/validator/LoginValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/validator/ObraValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cognis/vizion/api/validator/UsuarioValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V10__create-table-funcionario.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V11__create-table-usuario.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V12__create-table-obra.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V13__create-table-fases_obra.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V14__create-table-obra_alocacao_equipe.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V15__create-table-obra_arquivos.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V16__create-table-obra_empreiteiro.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V17__create-table-obra_financeiro.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V18__create-table-obra_funcionarios.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V19__create-table-obra_material.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V1__create-table-cliente.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V20__create-table-obra_planta.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V21__create-table-obra_proprietarios.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V22__refactor-obras_documentos.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V23__move-operational-tables-to-tenants.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V24__add-tenant-id-obras_documentos.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V2__create-table-empreiteira.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V3__alter-table-cliente.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V4__alter-table-empreiteira.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V5__create-table-empreiteiro.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V6__create-table-endereco.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V7__create-table-estoque.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V8__create-table-material.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/public/V9__create-table-movimentacao_estoque.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/tenants/V1__create-tenant-tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/VizionApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/facade/FasesObraFacadeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/facade/ObraFacadeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/service/FasesObraEstoqueSyncServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/service/ObraServiceAggregateTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/validator/LoginValidatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cognis/vizion/api/validator/UsuarioValidatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../diagrama.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/paginaInicial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/previaLogin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/previaLogin.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3CpV0Gn2BX3ooyIiQBEP1DJGCZx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.VizionApiApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/felipe/repo/buildup-api"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbe15c81-e404-4b13-8de1-5cdf9437074b" name="Changes" comment="" />
+      <created>1777082273619</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777082273619</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS public.usuario (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    tenant_id VARCHAR(50),
+    data_criacao TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    data_atualizacao TIMESTAMP WITHOUT TIME ZONE,
+    criado_por VARCHAR(255) DEFAULT 'SYSTEM',
+    atualizado_por VARCHAR(255)
+);
