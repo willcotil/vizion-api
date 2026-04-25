@@ -5,13 +5,21 @@ spring:
   application:
     name: buildup-api
     datasource:
-      url: jdbc:postgresql://vizion_db:5432/vizion
-      username: ${DB_USER}
-      password: ${DB_PASSWORD}
+      url: jdbc:postgresql://10.89.0.186:5432/vizion
+      username: admin
+      password: admin
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    com.cognis.vizion: DEBUG

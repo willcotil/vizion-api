@@ -12,7 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-@Configuration
+//@Configuration
 public class FlywayConfig {
 
     @Bean

@@ -44,111 +44,53 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        // 1. RECURSOS PÚBLICOS E ERRO (Sempre no topo)
                         .requestMatchers("/", "/index.html", "/assets/**", "/favicon.ico", "/manifest.webmanifest", "/error").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        .requestMatchers("/api/auth/login").permitAll()
-                        .requestMatchers("/api/auth/refresh", "/api/auth/refresh-token").permitAll()
+
+                        // 2. AUTENTICAÇÃO E REGISTRO INICIAL (Liberados)
+                        .requestMatchers("/api/auth/login", "/api/auth/refresh", "/api/auth/refresh-token").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/empreiteiro").permitAll() // Registro público
+                        
                         .requestMatchers(HttpMethod.GET, "/api/auth/me").authenticated()
 
-                        .requestMatchers(HttpMethod.POST, "/api/empreiteiro").permitAll()
-
+                        // 3. CONSULTAS DE OBRAS (Acesso Geral autenticado)
                         .requestMatchers(HttpMethod.GET,
-                                "/api/obra",
-                                "/api/obra/**",
-                                "/api/obraMaterial",
-                                "/api/obraMaterial/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/fasesObra",
-                                "/api/fasesObra/**",
-                                "/api/obraProprietarios",
-                                "/api/obraProprietarios/**"
+                                "/api/obra", "/api/obra/**",
+                                "/api/obraMaterial", "/api/obraMaterial/**",
+                                "/api/obrasDocumentos", "/api/obrasDocumentos/**",
+                                "/api/fasesObra", "/api/fasesObra/**",
+                                "/api/obraProprietarios", "/api/obraProprietarios/**"
                         ).hasAnyRole("CLIENTE", "EMPREITEIRO", "FUNCIONARIO", "ADMIN")
+
+                        // 4. GESTÃO FINANCEIRA E EMPREITEIRA (Empreiteiro e acima)
                         .requestMatchers(HttpMethod.GET,
-                                "/api/obra-financeiro",
-                                "/api/obra-financeiro/**",
-                                "/api/obra-empreiteiro",
-                                "/api/obra-empreiteiro/**",
-                                "/api/empreiteira",
-                                "/api/empreiteira/**"
+                                "/api/obra-financeiro", "/api/obra-financeiro/**",
+                                "/api/obra-empreiteiro", "/api/obra-empreiteiro/**",
+                                "/api/empreiteira", "/api/empreiteira/**"
                         ).hasAnyRole("EMPREITEIRO", "FUNCIONARIO", "ADMIN")
+
+                        // 5. GESTÃO OPERACIONAL (Funcionário e acima)
                         .requestMatchers(HttpMethod.GET,
-                                "/api/obra-funcionarios",
-                                "/api/obra-funcionarios/**",
-                                "/api/endereco",
-                                "/api/endereco/**"
+                                "/api/obra-funcionarios", "/api/obra-funcionarios/**",
+                                "/api/endereco", "/api/endereco/**"
                         ).hasAnyRole("FUNCIONARIO", "ADMIN")
 
-                        .requestMatchers(HttpMethod.POST,
-                                "/api/obra",
-                                "/api/obra/**",
-                                "/api/obraMaterial",
-                                "/api/obraMaterial/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/fasesObra",
-                                "/api/fasesObra/**",
-                                "/api/obraProprietarios",
-                                "/api/obraProprietarios/**",
-                                "/api/obra-financeiro",
-                                "/api/obra-financeiro/**",
-                                "/api/obra-empreiteiro",
-                                "/api/obra-empreiteiro/**",
-                                "/api/obra-funcionarios",
-                                "/api/obra-funcionarios/**",
-                                "/api/endereco",
-                                "/api/endereco/**"
-                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
-                        .requestMatchers(HttpMethod.PUT,
-                                "/api/obra",
-                                "/api/obra/**",
-                                "/api/obraMaterial",
-                                "/api/obraMaterial/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/fasesObra",
-                                "/api/fasesObra/**",
-                                "/api/obraProprietarios",
-                                "/api/obraProprietarios/**",
-                                "/api/obra-financeiro",
-                                "/api/obra-financeiro/**",
-                                "/api/obra-empreiteiro",
-                                "/api/obra-empreiteiro/**",
-                                "/api/obra-funcionarios",
-                                "/api/obra-funcionarios/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/endereco",
-                                "/api/endereco/**"
-                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,
-                                "/api/obra",
-                                "/api/obra/**",
-                                "/api/obraMaterial",
-                                "/api/obraMaterial/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/fasesObra",
-                                "/api/fasesObra/**",
-                                "/api/obraProprietarios",
-                                "/api/obraProprietarios/**",
-                                "/api/obra-financeiro",
-                                "/api/obra-financeiro/**",
-                                "/api/obra-empreiteiro",
-                                "/api/obra-empreiteiro/**",
-                                "/api/obra-funcionarios",
-                                "/api/obra-funcionarios/**",
-                                "/api/obrasDocumentos",
-                                "/api/obrasDocumentos/**",
-                                "/api/endereco",
-                                "/api/endereco/**"
-                        ).hasAnyRole("FUNCIONARIO", "ADMIN")
+                        // 6. OPERAÇÕES DE ESCRITA (POST, PUT, DELETE) 
+                        // Restringindo globalmente para funcionários e admins (exceto o registro de empreiteiro já liberado acima)
+                        .requestMatchers(HttpMethod.POST, "/api/**").hasAnyRole("FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/**").hasAnyRole("FUNCIONARIO", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/**").hasAnyRole("FUNCIONARIO", "ADMIN")
 
-                        .requestMatchers("/api/usuario", "/api/usuario/**", "/api/cliente", "/api/cliente/**", "/api/funcionario", "/api/funcionario/**", "/api/tenent", "/api/tenent/**").hasRole("ADMIN")
-                        .requestMatchers("/api/empreiteiro", "/api/empreiteiro/**").hasRole("ADMIN")
+                        // 7. ÁREA ADMINISTRATIVA (Apenas ADMIN)
+                        .requestMatchers("/api/usuario/**", "/api/cliente/**", "/api/funcionario/**", "/api/tenent/**").hasRole("ADMIN")
+                        // Removida a linha duplicada de /api/empreiteiro que exigia ADMIN
 
+                        // 8. QUALQUER OUTRA REQUISIÇÃO
                         .anyRequest().hasRole("ADMIN")
                 )
+                // Ordem dos filtros: 
+                // 1. JWT Security -> 2. Username/Password -> 3. Tenant
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(tenantHttpFilter, SecurityFilter.class);
 
@@ -171,7 +113,6 @@ public class SecurityConfig {
         return handler;
     }
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -185,10 +126,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        // Em produção, você pode trocar "*" pelo domínio específico se quiser mais rigor
+        configuration.setAllowedOrigins(Arrays.asList("*")); 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "tenant")); // Adicionado "tenant" que você usa no filtro
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "tenant"));
         configuration.setExposedHeaders(Arrays.asList("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
