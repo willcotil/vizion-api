@@ -1,0 +1,35 @@
+services:
+  vizion_db:
+    image: postgres:17-alpine
+    container_name: vizion_db
+    environment:
+      - POSTGRES_USER=${DB_USER:-admin}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-pass}
+      - POSTGRES_DB=vizion
+    ports:
+      - "5435:5432"
+    volumes:
+      - vizion_data:/var/lib/postgresql/data
+    networks:
+      - web_network
+
+  vizion_api:
+    build: .
+    container_name: vizion_api
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://vizion_db:5432/vizion
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-admin}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-pass}
+    depends_on:
+      - vizion_db
+    networks:
+      - web_network
+
+volumes:
+  vizion_data:
+
+networks:
+  web_network:
+    external: true
