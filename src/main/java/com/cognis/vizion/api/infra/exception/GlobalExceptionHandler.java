@@ -97,26 +97,43 @@ public class GlobalExceptionHandler {
             MethodArgumentNotValidException ex,
             HttpServletRequest request
     ) {
-
-        List<String> errors = ex.getBindingResult()
+        String errorMessage = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(err -> err.getField() + ": " + err.getDefaultMessage())
-                .toList();
+                .map(err -> err.getDefaultMessage())
+                .findFirst()
+                .orElse("Erro de validação nos campos");
 
         log.warn("Erro de validação Bean [{} {}]: {}",
                 request.getMethod(),
                 request.getRequestURI(),
-                errors
+                errorMessage
         );
 
         ErrorResponse error = new ErrorResponse(
                 "VALIDATION_ERROR",
-                String.join(", ", errors),
+                errorMessage,
                 HttpStatus.BAD_REQUEST.value(),
                 request.getRequestURI()
         );
 
         return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(org.springframework.security.authentication.BadCredentialsException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentials(
+            org.springframework.security.authentication.BadCredentialsException ex,
+            HttpServletRequest request
+    ) {
+        log.warn("Falha no login: {}", ex.getMessage());
+
+        ErrorResponse error = new ErrorResponse(
+                "AUTH_ERROR",
+                "Usuário ou senha inválidos.",
+                HttpStatus.UNAUTHORIZED.value(),
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
 }
