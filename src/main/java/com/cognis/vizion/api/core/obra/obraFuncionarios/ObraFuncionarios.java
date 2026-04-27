@@ -35,7 +35,7 @@ public class ObraFuncionarios extends BaseEntity {
     private String descricao_obra;
 
     @Column(length = 50)
-    private String cargo; // ex: encarregado, pedreiro, mestre
+    private String cargo;
 
     @Column(name = "data_inicio", nullable = false)
     private LocalDate data_inicio;

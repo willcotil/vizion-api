@@ -4,6 +4,8 @@ import com.cognis.vizion.api.core.endereco.dto.EnderecoRequest;
 import com.cognis.vizion.api.core.obra.fasesObra.dto.FasesObraItemRequest;
 import com.cognis.vizion.api.core.obra.obraDocumentos.dto.ObrasDocumentosItemRequest;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.dto.ObraFinanceiroItemRequest;
+import com.cognis.vizion.api.core.obra.obraFuncionarios.ObraFuncionarios;
+import com.cognis.vizion.api.core.obra.obraPropietarios.ObraProprietarios;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;

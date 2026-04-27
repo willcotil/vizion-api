@@ -14,7 +14,10 @@ import com.cognis.vizion.api.repository.EmpreiteiroRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -44,5 +47,11 @@ public class EmpreiteiroService extends BaseService<Empreiteiro, EmpreiteiroRequ
         entity.setEmail(usuario.email());
         entity.setUsuario(usuarioMapper.toEntity(usuario));
         return mapper.toResponse(repo.save(entity));
+    }
+
+    public Integer getIdEmpreiteiro(Usuario usuario){
+        Empreiteiro empreiteiro = repo.findByUsuarioId(usuario.getId().longValue())
+                .orElseThrow(() -> new RuntimeException("Empreiteiro Não Encontrado"));
+        return empreiteiro.getId();
     }
 }

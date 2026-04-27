@@ -13,9 +13,11 @@ import com.cognis.vizion.api.core.obra.fasesObra.FasesObra;
 import com.cognis.vizion.api.core.obra.fasesObra.dto.FasesObraItemRequest;
 import com.cognis.vizion.api.core.obra.obraDocumentos.ObrasDocumentos;
 import com.cognis.vizion.api.core.obra.obraDocumentos.dto.ObrasDocumentosItemRequest;
+import com.cognis.vizion.api.core.obra.obraEmpreiteiro.ObraEmpreiteiro;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.dto.ObraFinanceiroItemRequest;
 import com.cognis.vizion.api.core.obra.state.ObraAcao;
+import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.facade.ObraFacade;
 import com.cognis.vizion.api.mapper.ObraMapper;
 import com.cognis.vizion.api.repository.EnderecoRepo;
@@ -43,6 +45,7 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
     private final ObrasDocumentosRepo obrasDocumentosRepo;
     private final ObraMapper mapper;
     private final ObraFacade obraFacade;
+    private final ObraEmpreiteiroService obraEmpreiteiroService;
 
     @Override protected JpaRepository<Obra, Integer> getRepo() { return repo; }
     @Override protected ObraMapper getMapper() { return mapper; }
@@ -77,17 +80,17 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
     }
 
     @Transactional
-    public ObraDetailResponse salvarAggregate(ObraAggregateRequest request) {
-        return salvarOuAtualizarAggregate(request, null);
+    public ObraDetailResponse salvarAggregate(ObraAggregateRequest request, Usuario usuario) {
+        return salvarOuAtualizarAggregate(request, null, usuario);
     }
 
     @Transactional
-    public ObraDetailResponse atualizarAggregate(Integer id, ObraAggregateRequest request) {
+    public ObraDetailResponse atualizarAggregate(Integer id, ObraAggregateRequest request, Usuario usuario) {
         if (!repo.existsById(id)) {
             throw new RuntimeException("Registro não encontrado para atualização: " + id);
         }
 
-        return salvarOuAtualizarAggregate(request, id);
+        return salvarOuAtualizarAggregate(request, id, usuario);
     }
 
     private ObraResponse salvarOuAtualizar(ObraRequest request, Integer id) {
@@ -111,7 +114,7 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
         return mapper.toResponse(repo.save(entity));
     }
 
-    private ObraDetailResponse salvarOuAtualizarAggregate(ObraAggregateRequest request, Integer id) {
+    public ObraDetailResponse salvarOuAtualizarAggregate(ObraAggregateRequest request, Integer id, Usuario usuario) {
         Obra entity = id == null
                 ? new Obra()
                 : repo.findById(id).orElseThrow(() -> new RuntimeException("Registro não encontrado: " + id));
@@ -127,7 +130,11 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
         entity.setFinanceiro(mapearFinanceiro(entity, request.financeiro()));
         entity.setDocumentos(mapearDocumentos(entity, request.documentos()));
 
-        return new ObraDetailResponse(repo.save(entity));
+        entity = repo.save(entity);
+
+        obraEmpreiteiroService.popularEmpreiteiro(entity, usuario);
+
+        return new ObraDetailResponse(entity);
     }
 
     private Endereco aplicarEndereco(Endereco atual, EnderecoRequest request) {
@@ -228,5 +235,13 @@ public class ObraService extends BaseService<Obra, ObraRequest, ObraResponse, In
 
         return materialRepo.findById(idMaterial)
                 .orElseThrow(() -> new RuntimeException("Material não encontrado: " + idMaterial));
+    }
+
+    @Transactional(readOnly = true)
+    public List<ObraResponse> listarMinhasObras(Usuario user) {
+    List<Obra> obras = repo.findByEmpreiteiroId(user.getId(), "public");
+        return obras.stream()
+                .map(mapper::toResponse)
+                .toList();
     }
 }

@@ -15,6 +15,7 @@ import com.cognis.vizion.api.core.obra.obraDocumentos.dto.ObrasDocumentosItemReq
 import com.cognis.vizion.api.core.obra.obraFinanceiro.ObraFinanceiro;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.TipoFinanceiro;
 import com.cognis.vizion.api.core.obra.obraFinanceiro.dto.ObraFinanceiroItemRequest;
+import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.facade.ObraFacade;
 import com.cognis.vizion.api.repository.EnderecoRepo;
 import com.cognis.vizion.api.repository.FasesObraRepo;
@@ -139,7 +140,7 @@ class ObraServiceAggregateTest {
                 ))
         );
 
-        ObraDetailResponse response = service.salvarAggregate(request);
+        ObraDetailResponse response = service.salvarAggregate(request, new Usuario());
 
         ArgumentCaptor<Obra> obraCaptor = ArgumentCaptor.forClass(Obra.class);
         verify(repo).save(obraCaptor.capture());
@@ -251,7 +252,7 @@ class ObraServiceAggregateTest {
                 ))
         );
 
-        ObraDetailResponse response = service.atualizarAggregate(99, request);
+        ObraDetailResponse response = service.atualizarAggregate(99, request, new Usuario());
 
         ArgumentCaptor<Obra> obraCaptor = ArgumentCaptor.forClass(Obra.class);
         verify(repo).save(obraCaptor.capture());

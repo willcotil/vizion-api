@@ -5,16 +5,14 @@ import com.cognis.vizion.api.core.obra.dto.ObraDetailResponse;
 import com.cognis.vizion.api.core.obra.dto.ObraRequest;
 import com.cognis.vizion.api.core.obra.dto.ObraResponse;
 import com.cognis.vizion.api.core.obra.dto.ObraStatusTransitionRequest;
+import com.cognis.vizion.api.core.usuario.Usuario;
 import com.cognis.vizion.api.service.ObraService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/obra")
@@ -35,15 +33,26 @@ public class ObraController extends GenericController<ObraRequest, ObraResponse,
     }
 
     @PostMapping("/aggregate")
-    public ResponseEntity<ObraDetailResponse> salvarAggregate(@RequestBody @Valid ObraAggregateRequest request) {
-        return ResponseEntity.ok(obraService.salvarAggregate(request));
+    public ResponseEntity<ObraDetailResponse> salvarAggregate(
+            @RequestBody @Valid ObraAggregateRequest request,
+            @AuthenticationPrincipal Usuario user
+    ) {
+        return ResponseEntity.ok(obraService.salvarOuAtualizarAggregate(request, null, user));
     }
 
     @PutMapping("/{id}/aggregate")
     public ResponseEntity<ObraDetailResponse> atualizarAggregate(
             @PathVariable Integer id,
-            @RequestBody @Valid ObraAggregateRequest request
+            @RequestBody @Valid ObraAggregateRequest request,
+            @AuthenticationPrincipal Usuario user
     ) {
-        return ResponseEntity.ok(obraService.atualizarAggregate(id, request));
+        return ResponseEntity.ok(obraService.salvarOuAtualizarAggregate(request, id, user));
+    }
+
+    @GetMapping("/minhas-obras")
+    public ResponseEntity<List<ObraResponse>> getMinhasObras(
+            @AuthenticationPrincipal Usuario user
+    ) {
+        return ResponseEntity.ok(obraService.listarMinhasObras(user));
     }
 }
