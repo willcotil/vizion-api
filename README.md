@@ -54,6 +54,3 @@ A API estará disponível em `http://localhost:8090`.
 ## 📖 Documentação da API
 Com a aplicação rodando, acesse o Swagger UI para explorar os endpoints:
 `http://localhost:8090/swagger-ui.html`
-
----
-*Este projeto foi avaliado por um Arquiteto de Software. Veja os detalhes em [AVALIACAO.md](./AVALIACAO.md) e a [NOTA.md](./NOTA.md).*
